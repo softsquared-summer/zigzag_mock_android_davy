@@ -5,4 +5,6 @@
     <color name="colorAccent">#03DAC5</color>
     <color name="colorBackground">#ffffff</color>
     <color name="colorSplashBackground">#fdfeff</color>
+    <color name="colorSelectedDot">#000000</color>
+    <color name="colorDefaultDot">#B3B1B1</color>
 </resources>
