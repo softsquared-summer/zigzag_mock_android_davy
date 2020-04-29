@@ -19,14 +19,4 @@
         <item name="android:background">?android:attr/listDivider</item>
     </style>
 
-
-    <style name="EditTextId">
-        <item name="colorControlNormal">#F40000</item>
-        <item name="colorControlHighlight">#F40000</item>
-        <item name="colorControlActivated">#F40000</item>
-        <item name="android:textColorHint">#000000</item>
-        <item name="errorEnabled">true</item>
-        <item name="colorError">#F40000</item>
-<!--        <item name="errorTextAppearance">올바른 이메일 형식이 아닙니다</item>-->
-    </style>
 </resources>

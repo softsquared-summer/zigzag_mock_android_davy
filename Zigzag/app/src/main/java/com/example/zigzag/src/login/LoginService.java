@@ -1,7 +1,9 @@
 package com.example.zigzag.src.login;
 
-import com.example.zigzag.src.login.interfaces.LoginActivityView;
-import com.example.zigzag.src.login.interfaces.LoginRetrofitInterface;
+import com.example.zigzag.src.login.interfaces.LogInActivityView;
+import com.example.zigzag.src.login.interfaces.LogInRetrofitInterface;
+import com.example.zigzag.src.login.models.LogInBody;
+import com.example.zigzag.src.login.models.LogInResponse;
 import com.example.zigzag.src.main.models.DefaultResponse;
 
 import retrofit2.Call;
@@ -11,29 +13,50 @@ import retrofit2.Response;
 import static com.example.zigzag.src.ApplicationClass.getRetrofit;
 
 class LoginService {
-    private final LoginActivityView mLoginActivityView;
+    private final LogInActivityView mLogInActivityView;
 
-    LoginService(final LoginActivityView loginActivityView) {
-        this.mLoginActivityView = loginActivityView;
+    LoginService(final LogInActivityView loginActivityView) {
+        this.mLogInActivityView = loginActivityView;
     }
 
     void getTest() {
-        final LoginRetrofitInterface loginRetrofitInterface = getRetrofit().create(LoginRetrofitInterface.class);
+        final LogInRetrofitInterface loginRetrofitInterface = getRetrofit().create(LogInRetrofitInterface.class);
         loginRetrofitInterface.getTest().enqueue(new Callback<DefaultResponse>() {
             @Override
             public void onResponse(Call<DefaultResponse> call, Response<DefaultResponse> response) {
                 final DefaultResponse defaultResponse = response.body();
                 if (defaultResponse == null) {
-                    mLoginActivityView.validateFailure(null);
+                    mLogInActivityView.validateFailure(null);
                     return;
                 }
 
-                mLoginActivityView.validateSuccess(defaultResponse.getMessage());
+                mLogInActivityView.validateSuccess(defaultResponse.getMessage());
             }
 
             @Override
             public void onFailure(Call<DefaultResponse> call, Throwable t) {
-                mLoginActivityView.validateFailure(null);
+                mLogInActivityView.validateFailure(null);
+            }
+        });
+    }
+
+    void postLogIn(String id, String pw) {
+        final LogInRetrofitInterface loginRetrofitInterface = getRetrofit().create(LogInRetrofitInterface.class);
+        loginRetrofitInterface.LogInTest(new LogInBody(id, pw)).enqueue(new Callback<LogInResponse>() {
+            @Override
+            public void onResponse(Call<LogInResponse> call, Response<LogInResponse> response) {
+                final LogInResponse logInResponse = response.body();
+                if (logInResponse == null) {
+                    mLogInActivityView.validateFailure(null);
+                    return;
+                }
+
+                mLogInActivityView.logInSuccess(logInResponse.getLogInResult());
+            }
+
+            @Override
+            public void onFailure(Call<LogInResponse> call, Throwable t) {
+                mLogInActivityView.validateFailure(null);
             }
         });
     }

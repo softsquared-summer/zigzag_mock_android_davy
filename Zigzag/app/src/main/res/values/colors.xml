@@ -8,4 +8,6 @@
     <color name="colorSelectedDot">#000000</color>
     <color name="colorDefaultDot">#B3B1B1</color>
     <color name="colorError">#FF0000</color>
+    <color name="colorControlActivated">#FF0199</color>
+    <color name="colorStrokeGray">#E2E1E1E1</color>
 </resources>

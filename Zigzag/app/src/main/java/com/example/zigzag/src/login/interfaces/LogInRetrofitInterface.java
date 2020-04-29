@@ -1,5 +1,7 @@
 package com.example.zigzag.src.login.interfaces;
 
+import com.example.zigzag.src.login.models.LogInBody;
+import com.example.zigzag.src.login.models.LogInResponse;
 import com.example.zigzag.src.main.models.DefaultResponse;
 
 import okhttp3.RequestBody;
@@ -10,7 +12,7 @@ import retrofit2.http.POST;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
 
-public interface LoginRetrofitInterface {
+public interface LogInRetrofitInterface {
 //    @GET("/test")
     @GET("/jwt")
     Call<DefaultResponse> getTest();
@@ -23,4 +25,7 @@ public interface LoginRetrofitInterface {
 
     @POST("/test")
     Call<DefaultResponse> postTest(@Body RequestBody params);
+
+    @POST("/user/toke")
+    Call<LogInResponse> LogInTest(@Body LogInBody params);
 }

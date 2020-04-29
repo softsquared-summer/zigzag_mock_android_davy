@@ -12,7 +12,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.zigzag.R;
-import com.example.zigzag.src.login.LoginActivity;
+import com.example.zigzag.src.login.LogInActivity;
 
 public class MypageFragment extends Fragment {
     ViewGroup viewGroup;
@@ -27,7 +27,7 @@ public class MypageFragment extends Fragment {
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), LoginActivity.class);
+                Intent intent = new Intent(getActivity(), LogInActivity.class);
                 startActivity(intent);
             }
         });
