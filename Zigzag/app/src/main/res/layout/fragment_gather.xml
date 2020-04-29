@@ -30,7 +30,11 @@
             android:src="@drawable/bucket"
             android:layout_gravity="center_vertical"/>
     </LinearLayout>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
     <ScrollView
+        android:id="@+id/gather_scroll"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <LinearLayout
@@ -254,6 +258,46 @@
                 android:layout_width="wrap_content"
                 android:layout_height="250dp"
                 android:src="@drawable/gather_pick_2"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="250dp"
+                android:src="@drawable/gather_pick_3"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="250dp"
+                android:src="@drawable/gather_pick_4"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="250dp"
+                android:src="@drawable/gather_pick_5"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="250dp"
+                android:src="@drawable/gather_pick_6"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="250dp"
+                android:src="@drawable/gather_pick_7"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="250dp"
+                android:src="@drawable/gather_pick_8"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="250dp"
+                android:src="@drawable/gather_pick_9"/>
         </LinearLayout>
     </ScrollView>
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/gather_fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="10dp"
+            android:backgroundTint="@color/colorBackground"
+            app:fabSize="mini"
+            app:maxImageSize="13dp"
+            app:borderWidth="0dp"
+            android:src="@drawable/ic_up"/>
+    </FrameLayout>
 </LinearLayout>

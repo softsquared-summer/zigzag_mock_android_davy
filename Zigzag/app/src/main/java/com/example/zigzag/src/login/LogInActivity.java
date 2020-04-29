@@ -142,6 +142,7 @@ public class LogInActivity extends BaseActivity implements LogInActivityView {
 //                Intent intent = new Intent(this, SignInActivity.class);
 //                startActivity(intent);
                 showCustomToast("회원가입버튼");
+                break;
             default:
                 break;
         }

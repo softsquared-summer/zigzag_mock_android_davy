@@ -5,6 +5,7 @@ import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ScrollView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -13,6 +14,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.example.zigzag.R;
 import com.example.zigzag.src.home.zigzag.MyCustomPagerAdapter;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.Timer;
@@ -22,6 +24,10 @@ public class GatherFragment extends Fragment {
     ViewGroup viewGroup;
     ViewPager viewPager;
     TabLayout tabLayout;
+
+    private ScrollView mScrollView;
+    private FloatingActionButton mFloatingBtn;
+
     int images[] = {R.drawable.gather_ad_1, R.drawable.gather_ad_2,R.drawable.gather_ad_3,R.drawable.gather_ad_4,R.drawable.gather_ad_5};
     MyCustomPagerAdapter myCustomPagerAdapter;
     int currentPage = 0;
@@ -45,6 +51,17 @@ public class GatherFragment extends Fragment {
 
         tabLayout = viewGroup.findViewById(R.id.gather_ad_tab);
         tabLayout.setupWithViewPager(viewPager, true);
+
+        mScrollView = viewGroup.findViewById(R.id.gather_scroll);
+        mFloatingBtn = viewGroup.findViewById(R.id.gather_fab);
+
+        mFloatingBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mScrollView.fullScroll(ScrollView.FOCUS_UP);
+            }
+        });
+
 
         return viewGroup;
     }
