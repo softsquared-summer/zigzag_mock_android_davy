@@ -43,7 +43,7 @@
             android:layout_gravity="center_vertical"/>
     </LinearLayout>
     <LinearLayout
-        android:id="@+id/liner_login"
+        android:id="@+id/linear_login"
         android:layout_margin="15dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
