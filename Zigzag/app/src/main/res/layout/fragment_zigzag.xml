@@ -71,14 +71,13 @@
 
     <com.google.android.material.tabs.TabLayout
         app:tabBackground="@drawable/tab_selector"
-        android:layout_marginTop="-10dp"
         app:tabGravity="center"
+        android:clickable="false"
         app:tabIndicatorHeight="0dp"
         android:id="@+id/zig_banner_tab"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="10dp"
         android:layout_gravity="center"/>
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -103,4 +102,13 @@
             android:textColor="#B1AFAF"
             android:layout_gravity="center_vertical"/>
     </LinearLayout>
+    <TextView
+        android:layout_margin="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="지금 뜨는 인기 아이템"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        android:textSize="13sp"/>
+
 </LinearLayout>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
-
     <LinearLayout
         android:id="@+id/linear_gather_top"
         android:layout_width="match_parent"
@@ -30,102 +30,230 @@
             android:src="@drawable/bucket"
             android:layout_gravity="center_vertical"/>
     </LinearLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
     <LinearLayout
         android:id="@+id/liner_gather_tap"
+        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="15dp">
+        android:layout_gravity="center"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp">
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
+            android:layout_gravity="center"
             android:gravity="center"
             android:layout_weight="1">
             <ImageView
                 android:id="@+id/gather_outer"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
+                android:layout_gravity="top"
                 android:src="@drawable/gather_outer"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
                 android:text="아우터"
-                android:textSize="15sp"
+                android:textSize="10sp"
                 android:textColor="#000000"
                 android:layout_gravity="center_horizontal"/>
         </LinearLayout>
         <View
             style="@style/Divider"
             android:layout_gravity="center_vertical"
-            android:layout_marginLeft="8dp"/>
+            android:layout_marginLeft="5dp"/>
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:layout_marginLeft="10dp"
+            android:layout_gravity="center"
             android:orientation="vertical"
             android:layout_weight="1">
             <ImageView
                 android:id="@+id/gather_top"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_gravity="top"
+                android:layout_height="40dp"
                 android:src="@drawable/gather_top"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
                 android:text="상의"
-                android:textSize="15sp"
+                android:textSize="10sp"
                 android:textColor="#000000"
                 android:layout_gravity="center_horizontal"/>
         </LinearLayout>
         <View
             style="@style/Divider"
             android:layout_gravity="center_vertical"
-            android:layout_marginLeft="8dp"/>
+            android:layout_marginLeft="5dp"/>
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_marginLeft="6dp"
             android:gravity="bottom|center"
+            android:layout_gravity="top"
             android:layout_weight="1">
+
             <ImageView
                 android:id="@+id/gather_dress"
                 android:layout_width="wrap_content"
-                android:layout_height="63dp"
-                android:src="@drawable/gather_dress"/>
+                android:layout_height="40dp"
+                android:src="@drawable/gather_dress" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="원피스/세트"
-                android:layout_marginTop="2dp"
-                android:textSize="15sp"
+                android:layout_marginTop="6dp"
+                android:textSize="10sp"
                 android:textColor="#000000"
                 android:layout_gravity="center_horizontal|bottom"/>
         </LinearLayout>
         <View
             style="@style/Divider"
             android:layout_gravity="center_vertical"
-            android:layout_marginLeft="8dp"/>
+            android:layout_marginLeft="5dp"/>
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:gravity="center"
+            android:layout_gravity="center"
             android:layout_weight="1">
             <ImageView
                 android:id="@+id/gather_bottom"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
+                android:layout_gravity="top"
                 android:src="@drawable/gather_bottom"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
                 android:text="바지"
-                android:textSize="15sp"
+                android:textSize="10sp"
+                android:textColor="#000000"
+                android:layout_gravity="center_horizontal"/>
+        </LinearLayout>
+        <View
+            style="@style/Divider"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="5dp"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_weight="1">
+            <ImageView
+                android:id="@+id/gather_skirt"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_gravity="top"
+                android:src="@drawable/gather_skirt"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="스커트"
+                android:textSize="10sp"
                 android:textColor="#000000"
                 android:layout_gravity="center_horizontal"/>
         </LinearLayout>
     </LinearLayout>
-
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/vp_gather_ad"
+        android:layout_width="match_parent"
+        android:layout_height="260dp"
+        android:layout_marginTop="5dp"/>
+    <com.google.android.material.tabs.TabLayout
+        app:tabBackground="@drawable/tab_selector"
+        app:tabGravity="center"
+        android:clickable="false"
+        app:tabIndicatorHeight="0dp"
+        android:id="@+id/gather_ad_tab"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="-30dp"
+        android:layout_height="10dp"
+        android:layout_gravity="center"/>
+    <FrameLayout
+        android:id="@+id/gather_frame"
+        android:layout_below="@+id/vp_gather_ad"
+        android:layout_width="match_parent"
+        android:layout_height="110dp"
+        android:background="@drawable/gather_viedo"
+        android:layout_marginTop="-15dp">
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="none"
+            android:layout_gravity="center">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="100dp"
+                    android:layout_marginLeft="80dp"
+                    android:src="@drawable/gather_video_1"/>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="100dp"
+                    android:layout_marginLeft="10dp"
+                    android:src="@drawable/gather_video_2"/>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="100dp"
+                    android:layout_marginLeft="10dp"
+                    android:src="@drawable/gather_video_3"/>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="100dp"
+                    android:layout_marginLeft="10dp"
+                    android:src="@drawable/gather_video_4"/>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="100dp"
+                    android:layout_marginLeft="10dp"
+                    android:src="@drawable/gather_video_5"
+                    android:layout_marginRight="60dp"/>
+            </LinearLayout>
+        </HorizontalScrollView>
+    </FrameLayout>
+    </RelativeLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="10dp"
+                android:text="지그재그 픽"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#000000"/>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="250dp"
+        android:src="@drawable/gather_pick"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="250dp"
+                android:src="@drawable/gather_pick_2"/>
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>
