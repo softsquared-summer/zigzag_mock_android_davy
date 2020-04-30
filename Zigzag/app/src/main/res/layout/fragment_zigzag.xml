@@ -64,6 +64,13 @@
         </LinearLayout>
     </FrameLayout>
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:orientation="vertical">
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/vp_zig_banner"
         android:layout_width="match_parent"
@@ -102,6 +109,11 @@
             android:textColor="#B1AFAF"
             android:layout_gravity="center_vertical"/>
     </LinearLayout>
+       <ListView
+           android:id="@+id/lv_todayItem"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content">
+       </ListView>
     <TextView
         android:layout_margin="15dp"
         android:layout_width="wrap_content"
@@ -110,5 +122,11 @@
         android:textColor="#000000"
         android:textStyle="bold"
         android:textSize="13sp"/>
-
+       <ListView
+           android:id="@+id/lv_nowHowItem"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content">
+       </ListView>
+   </LinearLayout>
+    </ScrollView>
 </LinearLayout>

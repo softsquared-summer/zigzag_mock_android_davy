@@ -17,6 +17,7 @@ import com.example.zigzag.src.BaseActivity;
 import com.example.zigzag.src.home.mypage.MypageFragment;
 import com.example.zigzag.src.login.interfaces.LogInActivityView;
 import com.example.zigzag.src.login.models.LogInResponse;
+import com.example.zigzag.src.signIn.SignInActivity;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -139,10 +140,13 @@ public class LogInActivity extends BaseActivity implements LogInActivityView {
                 showCustomToast("로그인버튼");
                 break;
             case R.id.tv_btn_signin:
-//                Intent intent = new Intent(this, SignInActivity.class);
-//                startActivity(intent);
+                Intent intent = new Intent(this, SignInActivity.class);
+                startActivity(intent);
                 showCustomToast("회원가입버튼");
                 break;
+            case R.id.iv_login_back:
+                finish();
+                showCustomToast("뒤로");
             default:
                 break;
         }
