@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="TabTheme" parent="Theme.MaterialComponents.Light.DarkActionBar">
+        <item name="colorPrimary">#ffffff</item>
+        <!--        선택됐을 때 글씨색-->
+        <item name="android:textColorPrimary">@color/colorControlActivated</item>
+<!--       평상시 글씨 색-->
+        <item name="android:colorSecondary">#000000</item>
+<!--        밑 스크롤 색-->
+        <item name="colorAccent">@color/colorControlActivated</item>
+    </style>
+    <style name="tab_text" parent="TextAppearance.Design.Tab">
+        <item name="android:textSize">13sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+</resources>

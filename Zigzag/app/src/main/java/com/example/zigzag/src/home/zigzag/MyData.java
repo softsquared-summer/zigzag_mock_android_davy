@@ -3,12 +3,22 @@ package com.example.zigzag.src.home.zigzag;
 public class MyData {
     public int itemPhoto;
     public String shopName, itemInfo, itemPrice;
+    public boolean checked;
 
-    public MyData(int itemPhoto, String shopName, String itemInfo, String itemPrice) {
+    public MyData(int itemPhoto, String shopName, String itemInfo, String itemPrice, boolean b) {
         this.itemPhoto = itemPhoto;
         this.shopName = shopName;
         this.itemInfo = itemInfo;
         this.itemPrice = itemPrice;
+        this.checked = b;
+    }
+
+    public boolean isChecked() {
+        return checked;
+    }
+
+    public void setChecked(boolean checked) {
+        this.checked = checked;
     }
 
     public int getItemPhoto() {

@@ -1,4 +1,4 @@
-package com.example.zigzag.src.home.shoppingmall;
+package com.example.zigzag.src.outer.cardigan;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -17,7 +17,7 @@ import com.example.zigzag.src.home.shoppingmall.shoplike.ShopLikeFragment;
 import com.example.zigzag.src.home.shoppingmall.shoprank.ShopRankFragment;
 import com.google.android.material.tabs.TabLayout;
 
-public class ShoppingmallFragment extends Fragment {
+public class CardiganFragment extends Fragment {
     ViewGroup viewGroup;
     private ViewPager mViewPager;
 
@@ -32,15 +32,15 @@ public class ShoppingmallFragment extends Fragment {
         tabLayout.addTab(tabLayout.newTab().setText("즐겨찾기"));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
-        mViewPager = (ViewPager)viewGroup.findViewById(R.id.vp_shop);
+        final ViewPager viewPager = (ViewPager)viewGroup.findViewById(R.id.vp_shop);
         //프래그먼트 안에 프래그먼트를 만들 때는 FragmentManager 대신 ChildFragmentManager 사용
         final ViewPagerAdapter adapter = new ViewPagerAdapter(getChildFragmentManager(), tabLayout.getTabCount());
-        mViewPager.setAdapter(adapter);
-        mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+        viewPager.setAdapter(adapter);
+        viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
-                mViewPager.setCurrentItem(tab.getPosition());
+                viewPager.setCurrentItem(tab.getPosition());
             }
 
             @Override

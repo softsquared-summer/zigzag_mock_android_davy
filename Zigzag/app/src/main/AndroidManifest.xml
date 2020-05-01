@@ -29,6 +29,7 @@
         <activity android:name=".src.login.LogInActivity"
             android:windowSoftInputMode="adjustResize"/>
         <activity android:name=".src.signIn.SignInActivity"/>
+        <activity android:name=".src.outer.OuterActivity"/>
     </application>
 
 </manifest>

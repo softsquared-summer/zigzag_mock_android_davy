@@ -5,6 +5,7 @@ import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ScrollView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -15,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.zigzag.R;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
@@ -26,6 +28,9 @@ public class ZigzagFragment extends Fragment {
     ViewGroup viewGroup;
     ViewPager viewPager;
     TabLayout tabLayout;
+
+    private ScrollView mScrollView;
+    private FloatingActionButton mFloatingBtn;
 
     private RecyclerView mRecyclerView;
     private MyRecyclerViewAdapter mAdapter;
@@ -60,10 +65,20 @@ public class ZigzagFragment extends Fragment {
         mRecyclerView.setHasFixedSize(true);
         mAdapter = new MyRecyclerViewAdapter(itemList);
 
-        mLayoutManager = new GridLayoutManager(getActivity(),3);
+        mLayoutManager = new GridLayoutManager(getActivity(),2);
         mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
         mRecyclerView.setAdapter(mAdapter);
+
+        mScrollView = viewGroup.findViewById(R.id.zig_scroll);
+        mFloatingBtn = viewGroup.findViewById(R.id.zig_fab);
+
+        mFloatingBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mScrollView.fullScroll(ScrollView.FOCUS_UP);
+            }
+        });
 
         return viewGroup;
     }
@@ -80,15 +95,10 @@ public class ZigzagFragment extends Fragment {
     }
 
     private void initDataset(){
-        itemList.add(new MyData(R.drawable.item_photo,"팜므뮤즈","블라우스","42,000"));
-        itemList.add(new MyData(R.drawable.item_photo,"팜므뮤즈","블라우스","42,000"));
-        itemList.add(new MyData(R.drawable.item_photo,"팜므뮤즈","블라우스","42,000"));
-        itemList.add(new MyData(R.drawable.item_photo,"팜므뮤즈","블라우스","42,000"));
-        itemList.add(new MyData(R.drawable.item_photo,"팜므뮤즈","블라우스","42,000"));
-        itemList.add(new MyData(R.drawable.item_photo,"팜므뮤즈","블라우스","42,000"));
-        itemList.add(new MyData(R.drawable.item_photo,"팜므뮤즈","블라우스","42,000"));
-        itemList.add(new MyData(R.drawable.item_photo,"팜므뮤즈","블라우스","42,000"));
-        itemList.add(new MyData(R.drawable.item_photo,"팜므뮤즈","블라우스","42,000"));
+
+        for(int i = 0; i < 20; i++){
+            itemList.add(new MyData(R.drawable.item_photo,"팜므뮤즈","블라우스","42,000",false));
+        }
 
     }
 

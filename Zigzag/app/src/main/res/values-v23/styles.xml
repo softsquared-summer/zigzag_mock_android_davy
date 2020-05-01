@@ -19,4 +19,15 @@
         <item name="android:background">?android:attr/listDivider</item>
     </style>
 
+    <style name="TabTheme" parent="Theme.MaterialComponents.Light.DarkActionBar">
+        <item name="colorPrimary">#ffffff</item>
+        <item name="android:textColorPrimary">@color/colorControlActivated</item>
+        <item name="android:colorSecondary">#000000</item>
+        <item name="colorAccent">@color/colorControlActivated</item>
+    </style>
+
+    <style name="TextAppearance.Widget.Event.Toolbar.Title" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">18sp</item>
+    </style>
 </resources>

@@ -1,10 +1,12 @@
 package com.example.zigzag.src.home.gather;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.ScrollView;
 
 import androidx.annotation.NonNull;
@@ -14,6 +16,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.example.zigzag.R;
 import com.example.zigzag.src.home.zigzag.MyCustomPagerAdapter;
+import com.example.zigzag.src.outer.OuterActivity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 
@@ -24,6 +27,7 @@ public class GatherFragment extends Fragment {
     ViewGroup viewGroup;
     ViewPager viewPager;
     TabLayout tabLayout;
+    private LinearLayout mBtnOuter, mBtnTop, mBtnDress, mBtnBottom, mBtnSkirt;
 
     private ScrollView mScrollView;
     private FloatingActionButton mFloatingBtn;
@@ -62,7 +66,47 @@ public class GatherFragment extends Fragment {
             }
         });
 
+        mBtnOuter = viewGroup.findViewById(R.id.linear_gather_outer);
+        mBtnTop = viewGroup.findViewById(R.id.linear_gather_top);
+        mBtnDress = viewGroup.findViewById(R.id.linear_gather_dress);
+        mBtnBottom = viewGroup.findViewById(R.id.linear_gather_bottom);
+        mBtnSkirt = viewGroup.findViewById(R.id.linear_gather_skirt);
 
+        mBtnOuter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), OuterActivity.class);
+                startActivity(intent);
+            }
+        });
+//        mBtnTop.setOnClickListener(new View.OnClickListener(){
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(getActivity(), TopActivity.class);
+//                startActivity(intent);
+//            }
+//        });
+//        mBtnDress.setOnClickListener(new View.OnClickListener(){
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(getActivity(), DressActivity.class);
+//                startActivity(intent);
+//            }
+//        });
+//        mBtnBottom.setOnClickListener(new View.OnClickListener(){
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(getActivity(), BottomActivity.class);
+//                startActivity(intent);
+//            }
+//        });
+//        mBtnSkirt.setOnClickListener(new View.OnClickListener(){
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(getActivity(), SkirtActivity.class);
+//                startActivity(intent);
+//            }
+//        });
         return viewGroup;
     }
 

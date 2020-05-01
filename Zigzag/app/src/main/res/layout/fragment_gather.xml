@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
     <LinearLayout
-        android:id="@+id/linear_gather_top"
+        android:id="@+id/linear_gather_topbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
@@ -51,6 +51,7 @@
         android:layout_marginRight="15dp"
         android:layout_marginLeft="15dp">
         <LinearLayout
+            android:id="@+id/linear_gather_outer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -78,6 +79,7 @@
             android:layout_marginLeft="5dp"
             android:backgroundTint="#EDD1D0D0"/>
         <LinearLayout
+            android:id="@+id/linear_gather_top"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -105,6 +107,7 @@
             android:layout_marginLeft="5dp"
             android:backgroundTint="#EDD1D0D0"/>
         <LinearLayout
+            android:id="@+id/linear_gather_dress"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -132,6 +135,7 @@
             android:layout_marginLeft="5dp"
             android:backgroundTint="#EDD1D0D0"/>
         <LinearLayout
+            android:id="@+id/linear_gather_bottom"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -156,8 +160,10 @@
         <View
             style="@style/Divider"
             android:layout_gravity="center_vertical"
-            android:layout_marginLeft="5dp"/>
+            android:layout_marginLeft="5dp"
+            android:backgroundTint="#EDD1D0D0"/>
         <LinearLayout
+            android:id="@+id/linear_gather_skirt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -190,6 +196,8 @@
         android:layout_marginTop="5dp"/>
     <com.google.android.material.tabs.TabLayout
         app:tabBackground="@drawable/tab_selector"
+        android:layout_below="@+id/vp_gather_ad"
+        android:layout_centerHorizontal="true"
         app:tabGravity="center"
         android:clickable="false"
         app:tabIndicatorHeight="0dp"
@@ -197,7 +205,7 @@
         android:layout_width="wrap_content"
         android:layout_marginTop="-30dp"
         android:layout_height="10dp"
-        android:layout_gravity="center"/>
+        android:layout_gravity="center_horizontal"/>
     <FrameLayout
         android:id="@+id/gather_frame"
         android:layout_below="@+id/vp_gather_ad"

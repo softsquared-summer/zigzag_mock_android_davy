@@ -16,13 +16,14 @@
             android:src="@drawable/item_photo" />
 
         <androidx.appcompat.widget.AppCompatCheckBox
+            android:id="@+id/item_check_like"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|end"
             android:layout_marginRight="5dp"
             android:layout_marginBottom="5dp"
             android:button="@drawable/checkbox_custom_like"
-            android:padding="3dp" />
+            android:padding="3dp"/>
     </FrameLayout>
 
     <TextView
