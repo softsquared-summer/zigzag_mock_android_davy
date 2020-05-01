@@ -89,13 +89,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
     <TextView
-        android:layout_margin="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="오늘의 아이템"
         android:textColor="#000000"
         android:textStyle="bold"
-        android:textSize="13sp"/>
+        android:textSize="15sp"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -109,24 +111,13 @@
             android:textColor="#B1AFAF"
             android:layout_gravity="center_vertical"/>
     </LinearLayout>
-       <ListView
-           android:id="@+id/lv_todayItem"
+       <androidx.recyclerview.widget.RecyclerView
+           android:layout_marginRight="15dp"
+           android:layout_marginLeft="15dp"
+           android:layout_marginTop="5dp"
+           android:id="@+id/rv_today_item"
            android:layout_width="match_parent"
-           android:layout_height="wrap_content">
-       </ListView>
-    <TextView
-        android:layout_margin="15dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="지금 뜨는 인기 아이템"
-        android:textColor="#000000"
-        android:textStyle="bold"
-        android:textSize="13sp"/>
-       <ListView
-           android:id="@+id/lv_nowHowItem"
-           android:layout_width="match_parent"
-           android:layout_height="wrap_content">
-       </ListView>
+           android:layout_height="wrap_content"/>
    </LinearLayout>
     </ScrollView>
 </LinearLayout>

@@ -108,6 +108,7 @@ public class LogInActivity extends BaseActivity implements LogInActivityView {
 
     private void tryPostLogIn(){
         showProgressDialog();
+        //logInService.postLogIn("bige4739@gmail.com","1234");
         logInService.postLogIn(mEtId.getText().toString(),mEtPw.getText().toString());
     }
 
@@ -126,11 +127,15 @@ public class LogInActivity extends BaseActivity implements LogInActivityView {
     @Override
     public void logInSuccess(LogInResponse.LogInResult logInResult) {
         hideProgressDialog();
+        MypageFragment fragment = new MypageFragment();
+        Bundle bundle = new Bundle();
         String contents = mEtId.getText().toString();
-        Intent intent = new Intent(this, MypageFragment.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        intent.putExtra("id", contents);
-        startActivity(intent);
+        bundle.putString("id",contents);
+        fragment.setArguments(bundle);
+        showCustomToast(contents+"로그인성공");
+//        Intent intent = new Intent(this, MypageFragment.class);
+//        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//        startActivity(intent);
     }
 
     public void customOnClick(View view) {

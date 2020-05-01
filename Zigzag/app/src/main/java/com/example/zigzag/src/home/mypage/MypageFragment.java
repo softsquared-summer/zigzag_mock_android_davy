@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -17,12 +18,16 @@ import com.example.zigzag.src.login.LogInActivity;
 public class MypageFragment extends Fragment {
     ViewGroup viewGroup;
     LinearLayout btn_login;
+    TextView tv_hello, tv_id;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         viewGroup = (ViewGroup) inflater.inflate(R.layout.fragment_mypage,container,false);
 
-        LinearLayout btn_login = (LinearLayout)viewGroup.findViewById(R.id.linear_login);
+        btn_login = (LinearLayout)viewGroup.findViewById(R.id.linear_login);
+
+        tv_hello = viewGroup.findViewById(R.id.tv_my_hello);
+        tv_id = viewGroup.findViewById(R.id.tv_my_id);
 
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -31,6 +36,14 @@ public class MypageFragment extends Fragment {
                 startActivity(intent);
             }
         });
+
+        Bundle extra = this.getArguments();
+        if(extra != null){
+            extra = getArguments();
+            String id = extra.getString("id");
+            tv_hello.setText("회원님 안녕하세요!");
+            tv_id.setText(id);
+        }
 
         return viewGroup;
     }

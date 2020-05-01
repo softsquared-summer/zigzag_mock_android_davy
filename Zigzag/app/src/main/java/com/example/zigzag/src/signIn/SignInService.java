@@ -40,7 +40,7 @@ class SignInService {
         });
     }
 
-    void postSignIn(String email, String pw, String ph, boolean isOver14, boolean isServiceAgree, boolean isPrivacyAgree, boolean isAlarmAgree) {
+    void postSignIn(String email, String pw, String ph, String isOver14, String isServiceAgree, String isPrivacyAgree, String isAlarmAgree) {
         final com.example.zigzag.src.signIn.interfaces.SignInRetrofitInterface signInRetrofitInterface = getRetrofit().create(com.example.zigzag.src.signIn.interfaces.SignInRetrofitInterface.class);
         signInRetrofitInterface.SignInTest(new SignInBody(email, pw, ph, isOver14, isServiceAgree, isPrivacyAgree, isAlarmAgree)).enqueue(new Callback<SignInResponse>() {
             @Override

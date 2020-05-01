@@ -26,6 +26,6 @@ public interface SignInRetrofitInterface {
     @POST("/test")
     Call<DefaultResponse> postTest(@Body RequestBody params);
 
-    @POST("/user/toke")
+    @POST("/login/token")
     Call<LogInResponse> LogInTest(@Body LogInBody params);
 }

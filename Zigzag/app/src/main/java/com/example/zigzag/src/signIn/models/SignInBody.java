@@ -14,18 +14,18 @@ public class SignInBody {
     private String phone;
 
     @SerializedName("is_over_14")
-    private Boolean is_over_14;
+    private String is_over_14;
 
     @SerializedName("is_service_agree")
-    private Boolean is_service_agree;
+    private String is_service_agree;
 
     @SerializedName("is_privacy_agree")
-    private Boolean is_privacy_agree;
+    private String is_privacy_agree;
 
     @SerializedName("is_alarm_agree")
-    private Boolean is_alarm_agree;
+    private String is_alarm_agree;
 
-    public SignInBody(String email, String password, String phone, Boolean is_over_14, Boolean is_service_agree, Boolean is_privacy_agree, Boolean is_alarm_agree) {
+    public SignInBody(String email, String password, String phone, String is_over_14, String is_service_agree, String is_privacy_agree, String is_alarm_agree) {
         this.email = email;
         this.password = password;
         this.phone = phone;

@@ -32,7 +32,7 @@ public class SignInActivity extends BaseActivity implements SignInActivityView, 
 
     private boolean isAll, is14, isSv, isP, isA;
 
-    private String id,pw,ph;
+    private String id,pw,ph,sIs14,sIsSv,sIsP,sIsA;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +62,19 @@ public class SignInActivity extends BaseActivity implements SignInActivityView, 
         mCheckService.setOnCheckedChangeListener(this);
         mCheckPrivacy.setOnCheckedChangeListener(this);
         mCheckAlarm.setOnCheckedChangeListener(this);
+
+        if(is14 == true){
+            sIs14 = "Y";
+        }
+        if(isSv == true){
+            sIsSv = "Y";
+        }
+        if(isP == true){
+            sIsP = "Y";
+        }
+        if(isA == true){
+            sIsA = "Y";
+        }
 
         mEtSignId.addTextChangedListener(
                 new TextWatcher() {
@@ -142,11 +155,11 @@ public class SignInActivity extends BaseActivity implements SignInActivityView, 
                     @Override
                     public void afterTextChanged(Editable s) {
                         if(mEtSignPh.getText().toString().length()<10){
-                            mTvSignId.setText("휴대폰번호는 10자리 이상입니다.");
-                            mTvSignId.setTextColor(R.color.colorError);
+                            mTvSignPh.setText("휴대폰번호는 10자리 이상입니다.");
+                            mTvSignPh.setTextColor(R.color.colorError);
                         }
                         else{
-                            mTvSignId.setText("휴대폰번호");
+                            mTvSignPh.setText("휴대폰번호");
                         }
                     }
                 }
@@ -163,7 +176,7 @@ public class SignInActivity extends BaseActivity implements SignInActivityView, 
 
     private void tryPostSignIn(){
         showProgressDialog();
-        signInService.postSignIn(id,pw,ph,is14,isSv,isP,isA);
+        signInService.postSignIn(id,pw,ph,sIs14,sIsSv,sIsP,sIsA);
     }
 
     @Override
@@ -213,7 +226,7 @@ public class SignInActivity extends BaseActivity implements SignInActivityView, 
 
     public static boolean isPw(String pw){
         boolean returnValue = false;
-        String regex = "^(?=.*[A-Za-z])(?=.*[0-9])(?=.*[$@$!%*#?&]).{8,20}.$";
+        String regex = "^(?=.*[A-Za-z])(?=.*[0-9])(?=.*[$@$!%^*#?&]).{8,20}.$";
         Pattern p = Pattern.compile(regex);
         Matcher m = p.matcher(pw);
         if(m.matches()){

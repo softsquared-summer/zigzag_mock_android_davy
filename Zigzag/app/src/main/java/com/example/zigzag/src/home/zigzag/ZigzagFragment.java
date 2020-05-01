@@ -9,18 +9,29 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.zigzag.R;
 import com.google.android.material.tabs.TabLayout;
 
+import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
+
 
 public class ZigzagFragment extends Fragment {
     ViewGroup viewGroup;
     ViewPager viewPager;
     TabLayout tabLayout;
+
+    private RecyclerView mRecyclerView;
+    private MyRecyclerViewAdapter mAdapter;
+    private RecyclerView.LayoutManager mLayoutManager;
+    private ArrayList<MyData> itemList = new ArrayList<>();
+
     int images[] = {R.drawable.banner1, R.drawable.banner2, R.drawable.banner3};
     MyCustomPagerAdapter myCustomPagerAdapter;
     int currentPage = 0;
@@ -45,9 +56,41 @@ public class ZigzagFragment extends Fragment {
         tabLayout = viewGroup.findViewById(R.id.zig_banner_tab);
         tabLayout.setupWithViewPager(viewPager, true);
 
+        mRecyclerView = viewGroup.findViewById(R.id.rv_today_item);
+        mRecyclerView.setHasFixedSize(true);
+        mAdapter = new MyRecyclerViewAdapter(itemList);
+
+        mLayoutManager = new GridLayoutManager(getActivity(),3);
+        mRecyclerView.setLayoutManager(mLayoutManager);
+        mRecyclerView.setItemAnimator(new DefaultItemAnimator());
+        mRecyclerView.setAdapter(mAdapter);
+
         return viewGroup;
     }
 
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        initDataset();
+    }
+
+    private void initDataset(){
+        itemList.add(new MyData(R.drawable.item_photo,"팜므뮤즈","블라우스","42,000"));
+        itemList.add(new MyData(R.drawable.item_photo,"팜므뮤즈","블라우스","42,000"));
+        itemList.add(new MyData(R.drawable.item_photo,"팜므뮤즈","블라우스","42,000"));
+        itemList.add(new MyData(R.drawable.item_photo,"팜므뮤즈","블라우스","42,000"));
+        itemList.add(new MyData(R.drawable.item_photo,"팜므뮤즈","블라우스","42,000"));
+        itemList.add(new MyData(R.drawable.item_photo,"팜므뮤즈","블라우스","42,000"));
+        itemList.add(new MyData(R.drawable.item_photo,"팜므뮤즈","블라우스","42,000"));
+        itemList.add(new MyData(R.drawable.item_photo,"팜므뮤즈","블라우스","42,000"));
+        itemList.add(new MyData(R.drawable.item_photo,"팜므뮤즈","블라우스","42,000"));
+
+    }
 
     @Override
     public void onResume() {
