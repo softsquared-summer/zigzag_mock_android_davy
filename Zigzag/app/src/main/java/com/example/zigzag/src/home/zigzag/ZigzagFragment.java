@@ -9,6 +9,7 @@ import android.widget.ScrollView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.widget.NestedScrollView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -29,7 +30,7 @@ public class ZigzagFragment extends Fragment {
     ViewPager viewPager;
     TabLayout tabLayout;
 
-    private ScrollView mScrollView;
+    private NestedScrollView mScrollView;
     private FloatingActionButton mFloatingBtn;
 
     private RecyclerView mRecyclerView;
