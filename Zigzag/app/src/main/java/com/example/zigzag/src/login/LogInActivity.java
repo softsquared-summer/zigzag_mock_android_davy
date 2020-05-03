@@ -108,8 +108,8 @@ public class LogInActivity extends BaseActivity implements LogInActivityView {
 
     private void tryPostLogIn(){
         showProgressDialog();
-        //logInService.postLogIn("bige4739@gmail.com","1234");
-        logInService.postLogIn(mEtId.getText().toString(),mEtPw.getText().toString());
+        logInService.postLogIn("bige4739@gmail.com","1234");
+        //logInService.postLogIn(mEtId.getText().toString(),mEtPw.getText().toString());
     }
 
     @Override

@@ -4,14 +4,14 @@ import com.google.gson.annotations.SerializedName;
 
 public class LogInBody {
 
-    @SerializedName("id")
-    private String id;
+    @SerializedName("email")
+    private String email;
 
-    @SerializedName("pw")
-    private String pw;
+    @SerializedName("password")
+    private String password;
 
-    public LogInBody(String id, String pw) {
-        this.id = id;
-        this.pw = pw;
+    public LogInBody(String email, String password) {
+        this.email = email;
+        this.password = password;
     }
 }

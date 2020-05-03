@@ -40,9 +40,9 @@ class LoginService {
         });
     }
 
-    void postLogIn(String id, String pw) {
+    void postLogIn(String email, String password) {
         final SignInRetrofitInterface loginRetrofitInterface = getRetrofit().create(SignInRetrofitInterface.class);
-        loginRetrofitInterface.LogInTest(new LogInBody(id, pw)).enqueue(new Callback<LogInResponse>() {
+        loginRetrofitInterface.LogInTest(new LogInBody(email, password)).enqueue(new Callback<LogInResponse>() {
             @Override
             public void onResponse(Call<LogInResponse> call, Response<LogInResponse> response) {
                 final LogInResponse logInResponse = response.body();

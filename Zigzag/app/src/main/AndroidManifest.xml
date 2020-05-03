@@ -30,6 +30,7 @@
             android:windowSoftInputMode="adjustResize"/>
         <activity android:name=".src.signIn.SignInActivity"/>
         <activity android:name=".src.outer.OuterActivity"/>
+        <activity android:name=".src.top.TopActivity"/>
     </application>
 
 </manifest>

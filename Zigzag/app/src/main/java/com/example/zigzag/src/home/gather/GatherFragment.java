@@ -17,6 +17,7 @@ import androidx.viewpager.widget.ViewPager;
 import com.example.zigzag.R;
 import com.example.zigzag.src.home.zigzag.MyCustomPagerAdapter;
 import com.example.zigzag.src.outer.OuterActivity;
+import com.example.zigzag.src.top.TopActivity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 
@@ -27,7 +28,7 @@ public class GatherFragment extends Fragment {
     ViewGroup viewGroup;
     ViewPager viewPager;
     TabLayout tabLayout;
-    private LinearLayout mBtnOuter, mBtnTop, mBtnDress, mBtnBottom, mBtnSkirt;
+    private LinearLayout mBtnOuter, mBtnTop, mBtnDress, mBtnBottom, mBtnFree;
 
     private ScrollView mScrollView;
     private FloatingActionButton mFloatingBtn;
@@ -70,7 +71,7 @@ public class GatherFragment extends Fragment {
         mBtnTop = viewGroup.findViewById(R.id.linear_gather_top);
         mBtnDress = viewGroup.findViewById(R.id.linear_gather_dress);
         mBtnBottom = viewGroup.findViewById(R.id.linear_gather_bottom);
-        mBtnSkirt = viewGroup.findViewById(R.id.linear_gather_skirt);
+        mBtnFree = viewGroup.findViewById(R.id.linear_gather_free);
 
         mBtnOuter.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,13 +80,13 @@ public class GatherFragment extends Fragment {
                 startActivity(intent);
             }
         });
-//        mBtnTop.setOnClickListener(new View.OnClickListener(){
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(getActivity(), TopActivity.class);
-//                startActivity(intent);
-//            }
-//        });
+        mBtnTop.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), TopActivity.class);
+                startActivity(intent);
+            }
+        });
 //        mBtnDress.setOnClickListener(new View.OnClickListener(){
 //            @Override
 //            public void onClick(View v) {
