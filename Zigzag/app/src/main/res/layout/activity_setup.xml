@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    android:id="@+id/setup_layout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".src.outer.BottomActivity"
+    android:backgroundTint="#ffffff"
+    android:background="#BEF8F6F6">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/setup_appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        app:elevation="0dp"
+        android:background="#ffffff"
+        android:padding="10dp">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/setup_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:background="#ffffff"
+            android:backgroundTint="#ffffff"
+            app:title="설정"
+            app:titleTextAppearance="@style/TextAppearance.Widget.Event.Toolbar.Title"
+            app:titleTextColor="#000000" />
+    </com.google.android.material.appbar.AppBarLayout>
+    <LinearLayout
+        android:layout_marginTop="?android:attr/actionBarSize"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <LinearLayout
+            android:id="@+id/linear_setup_logout"
+            android:padding="5dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="로그아웃"
+                android:textColor="#000000"
+                android:textSize="17sp"
+                android:layout_weight="1"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=">"
+                android:textSize="20sp"
+                android:layout_gravity="center"/>
+        </LinearLayout>
+        <View
+            style="@style/Divider"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:backgroundTint="#EDD1D0D0"/>
+        <TextView
+            android:id="@+id/tv_setup_withdrawal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="10dp"
+            android:text="회원탈퇴"/>
+    </LinearLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

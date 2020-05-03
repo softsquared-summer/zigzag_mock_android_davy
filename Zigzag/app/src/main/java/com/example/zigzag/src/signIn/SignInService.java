@@ -1,6 +1,6 @@
 package com.example.zigzag.src.signIn;
 
-import com.example.zigzag.src.login.interfaces.SignInRetrofitInterface;
+import com.example.zigzag.src.login.interfaces.LogInRetrofitInterface;
 import com.example.zigzag.src.main.models.DefaultResponse;
 import com.example.zigzag.src.signIn.interfaces.SignInActivityView;
 import com.example.zigzag.src.signIn.models.SignInBody;
@@ -20,7 +20,7 @@ class SignInService {
     }
 
     void getTest() {
-        final SignInRetrofitInterface signInRetrofitInterface = getRetrofit().create(SignInRetrofitInterface.class);
+        final LogInRetrofitInterface signInRetrofitInterface = getRetrofit().create(LogInRetrofitInterface.class);
         signInRetrofitInterface.getTest().enqueue(new Callback<DefaultResponse>() {
             @Override
             public void onResponse(Call<DefaultResponse> call, Response<DefaultResponse> response) {

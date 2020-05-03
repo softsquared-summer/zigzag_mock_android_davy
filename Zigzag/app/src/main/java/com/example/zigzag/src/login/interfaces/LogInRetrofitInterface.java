@@ -12,7 +12,7 @@ import retrofit2.http.POST;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
 
-public interface SignInRetrofitInterface {
+public interface LogInRetrofitInterface {
 //    @GET("/test")
     @GET("/jwt")
     Call<DefaultResponse> getTest();

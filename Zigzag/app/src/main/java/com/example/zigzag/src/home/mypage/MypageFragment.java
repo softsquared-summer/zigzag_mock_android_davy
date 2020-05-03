@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -14,18 +15,20 @@ import androidx.fragment.app.Fragment;
 
 import com.example.zigzag.R;
 import com.example.zigzag.src.login.LogInActivity;
+import com.example.zigzag.src.setup.SetupActivity;
 
 public class MypageFragment extends Fragment {
     ViewGroup viewGroup;
     LinearLayout btn_login;
     TextView tv_hello, tv_id;
+    ImageView btn_setup;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         viewGroup = (ViewGroup) inflater.inflate(R.layout.fragment_mypage,container,false);
 
         btn_login = (LinearLayout)viewGroup.findViewById(R.id.linear_login);
-
+        btn_setup = viewGroup.findViewById(R.id.iv_login_set);
         tv_hello = viewGroup.findViewById(R.id.tv_my_hello);
         tv_id = viewGroup.findViewById(R.id.tv_my_id);
 
@@ -33,6 +36,13 @@ public class MypageFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), LogInActivity.class);
+                startActivity(intent);
+            }
+        });
+        btn_setup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), SetupActivity.class);
                 startActivity(intent);
             }
         });

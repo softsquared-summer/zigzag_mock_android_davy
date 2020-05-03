@@ -1,7 +1,7 @@
 package com.example.zigzag.src.login;
 
 import com.example.zigzag.src.login.interfaces.LogInActivityView;
-import com.example.zigzag.src.login.interfaces.SignInRetrofitInterface;
+import com.example.zigzag.src.login.interfaces.LogInRetrofitInterface;
 import com.example.zigzag.src.login.models.LogInBody;
 import com.example.zigzag.src.login.models.LogInResponse;
 import com.example.zigzag.src.main.models.DefaultResponse;
@@ -20,7 +20,7 @@ class LoginService {
     }
 
     void getTest() {
-        final SignInRetrofitInterface loginRetrofitInterface = getRetrofit().create(SignInRetrofitInterface.class);
+        final LogInRetrofitInterface loginRetrofitInterface = getRetrofit().create(LogInRetrofitInterface.class);
         loginRetrofitInterface.getTest().enqueue(new Callback<DefaultResponse>() {
             @Override
             public void onResponse(Call<DefaultResponse> call, Response<DefaultResponse> response) {
@@ -41,7 +41,7 @@ class LoginService {
     }
 
     void postLogIn(String email, String password) {
-        final SignInRetrofitInterface loginRetrofitInterface = getRetrofit().create(SignInRetrofitInterface.class);
+        final LogInRetrofitInterface loginRetrofitInterface = getRetrofit().create(LogInRetrofitInterface.class);
         loginRetrofitInterface.LogInTest(new LogInBody(email, password)).enqueue(new Callback<LogInResponse>() {
             @Override
             public void onResponse(Call<LogInResponse> call, Response<LogInResponse> response) {

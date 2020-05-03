@@ -29,7 +29,6 @@
             app:title="아우터"/>
     </com.google.android.material.appbar.AppBarLayout>
     <LinearLayout
-
         android:layout_marginTop="?android:attr/actionBarSize"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
