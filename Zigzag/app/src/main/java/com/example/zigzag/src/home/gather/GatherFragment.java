@@ -15,6 +15,8 @@ import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.zigzag.R;
+import com.example.zigzag.src.bottom.BottomActivity;
+import com.example.zigzag.src.dress.DressActivity;
 import com.example.zigzag.src.home.zigzag.MyCustomPagerAdapter;
 import com.example.zigzag.src.outer.OuterActivity;
 import com.example.zigzag.src.top.TopActivity;
@@ -87,27 +89,20 @@ public class GatherFragment extends Fragment {
                 startActivity(intent);
             }
         });
-//        mBtnDress.setOnClickListener(new View.OnClickListener(){
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(getActivity(), DressActivity.class);
-//                startActivity(intent);
-//            }
-//        });
-//        mBtnBottom.setOnClickListener(new View.OnClickListener(){
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(getActivity(), BottomActivity.class);
-//                startActivity(intent);
-//            }
-//        });
-//        mBtnSkirt.setOnClickListener(new View.OnClickListener(){
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(getActivity(), SkirtActivity.class);
-//                startActivity(intent);
-//            }
-//        });
+        mBtnDress.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), DressActivity.class);
+                startActivity(intent);
+            }
+        });
+        mBtnBottom.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), BottomActivity.class);
+                startActivity(intent);
+            }
+        });
         return viewGroup;
     }
 

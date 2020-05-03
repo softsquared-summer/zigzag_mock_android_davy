@@ -31,6 +31,8 @@
         <activity android:name=".src.signIn.SignInActivity"/>
         <activity android:name=".src.outer.OuterActivity"/>
         <activity android:name=".src.top.TopActivity"/>
+        <activity android:name=".src.dress.DressActivity"/>
+        <activity android:name=".src.bottom.BottomActivity"/>
     </application>
 
 </manifest>

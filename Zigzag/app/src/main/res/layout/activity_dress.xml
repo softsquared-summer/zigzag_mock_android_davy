@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    android:id="@+id/dress_main_layout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".src.outer.TopActivity"
+    android:backgroundTint="#ffffff"
+    android:background="#BEF8F6F6">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout_dress"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        app:elevation="0dp"
+        android:background="#ffffff"
+        android:padding="10dp">
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/dress_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:background="#ffffff"
+            android:backgroundTint="#ffffff"
+            app:titleTextColor="#000000"
+            app:titleTextAppearance="@style/TextAppearance.Widget.Event.Toolbar.Title"
+            app:title="원피스/세트"/>
+    </com.google.android.material.appbar.AppBarLayout>
+    <LinearLayout
+
+        android:layout_marginTop="?android:attr/actionBarSize"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/dress_tabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:theme="@style/TabTheme"
+        app:tabTextAppearance="@style/tab_text"/>
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/vp_dress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#ffffff"/>
+    </LinearLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
