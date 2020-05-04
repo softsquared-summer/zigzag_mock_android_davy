@@ -4,25 +4,26 @@ import com.google.gson.annotations.SerializedName;
 
 public class LogInResponse {
 
-    public class LogInResult {
-        @SerializedName("jwt")
-        private String jwt;
+//    public class LogInResult {
+//        @SerializedName("jwt")
+//        private String jwt;
+//
+//        public String getJwt() {
+//            return jwt;
+//        }
+//    }
 
-        public String getJwt() {
-            return jwt;
-        }
-    }
     @SerializedName("code")
     private int code;
 
     @SerializedName("message")
     private String message;
 
-    @SerializedName("isSuccess")
-    private boolean isSuccess;
+    @SerializedName("is_success")
+    private boolean is_success;
 
     @SerializedName("result")
-    private LogInResult logInResult;
+    private String result;
 
     public int getCode() {
         return code;
@@ -33,10 +34,10 @@ public class LogInResponse {
     }
 
     public boolean getIsSuccess() {
-        return isSuccess;
+        return is_success;
     }
 
-    public LogInResult getLogInResult() {
-        return logInResult;
+    public String getResult() {
+        return result;
     }
 }

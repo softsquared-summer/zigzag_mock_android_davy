@@ -4,9 +4,6 @@ import com.google.gson.annotations.SerializedName;
 
 public class SignInResponse {
 
-    public class SignInResult {
-
-    }
     @SerializedName("code")
     private int code;
 
@@ -16,8 +13,6 @@ public class SignInResponse {
     @SerializedName("isSuccess")
     private boolean isSuccess;
 
-    @SerializedName("result")
-    private SignInResult signInResult;
 
     public int getCode() {
         return code;
@@ -31,7 +26,4 @@ public class SignInResponse {
         return isSuccess;
     }
 
-    public SignInResult getSignInResult() {
-        return signInResult;
-    }
 }

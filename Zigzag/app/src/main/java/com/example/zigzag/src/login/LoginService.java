@@ -51,7 +51,7 @@ class LoginService {
                     return;
                 }
 
-                mLogInActivityView.logInSuccess(logInResponse.getLogInResult());
+                mLogInActivityView.logInSuccess(logInResponse.getIsSuccess(), logInResponse.getCode(), logInResponse.getMessage(), logInResponse.getResult());
             }
 
             @Override

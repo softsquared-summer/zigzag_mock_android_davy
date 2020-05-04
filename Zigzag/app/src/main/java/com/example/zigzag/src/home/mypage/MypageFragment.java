@@ -36,7 +36,7 @@ public class MypageFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), LogInActivity.class);
-                startActivity(intent);
+                startActivityForResult(intent,1);
             }
         });
         btn_setup.setOnClickListener(new View.OnClickListener() {
@@ -47,14 +47,28 @@ public class MypageFragment extends Fragment {
             }
         });
 
-        Bundle extra = this.getArguments();
-        if(extra != null){
-            extra = getArguments();
-            String id = extra.getString("id");
-            tv_hello.setText("회원님 안녕하세요!");
-            tv_id.setText(id);
-        }
+//        Bundle extra = this.getArguments();
+//        if(extra != null){
+//            extra = getArguments();
+//            String id = extra.getString("id");
+//            tv_hello.setText("회원님 안녕하세요!");
+//            tv_id.setText(id);
+//        }
 
         return viewGroup;
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if(requestCode == 1){
+            if(resultCode == 1){
+                String id = (String) data.getExtras().get("id");
+                tv_hello.setText("회원님 안녕하세요!");
+                tv_id.setText(id);
+                btn_login.setClickable(false);
+            }
+        }
     }
 }

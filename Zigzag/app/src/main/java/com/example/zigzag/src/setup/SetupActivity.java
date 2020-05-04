@@ -2,8 +2,10 @@ package com.example.zigzag.src.setup;
 
 import android.graphics.Paint;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -12,12 +14,16 @@ import androidx.appcompat.widget.Toolbar;
 
 import com.example.zigzag.R;
 import com.example.zigzag.src.BaseActivity;
+import com.example.zigzag.src.CustomDialog;
 import com.example.zigzag.src.setup.interfaces.SetupActivityView;
 
 public class SetupActivity extends BaseActivity implements SetupActivityView {
+
+    private LinearLayout mBtnLogout;
     private TextView mTvWithdrawal;
     private Toolbar mToolbar;
 
+    private CustomDialog customDialog;
     private SetupService setupService;
 
     @Override
@@ -26,6 +32,7 @@ public class SetupActivity extends BaseActivity implements SetupActivityView {
         setContentView(R.layout.activity_setup);
         setupService = new SetupService(this);
 
+        mBtnLogout = findViewById(R.id.linear_setup_logout);
         mTvWithdrawal = findViewById(R.id.tv_setup_withdrawal);
         mTvWithdrawal.setPaintFlags(mTvWithdrawal.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
 
@@ -35,6 +42,15 @@ public class SetupActivity extends BaseActivity implements SetupActivityView {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_back);
 
+        mBtnLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                customDialog = new CustomDialog(SetupActivity.this);
+                customDialog.setCancelable(true);
+                customDialog.getWindow().setGravity(Gravity.BOTTOM);
+                customDialog.show();
+            }
+        });
     }
 
     @Override
@@ -86,4 +102,8 @@ public class SetupActivity extends BaseActivity implements SetupActivityView {
         }
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+    }
 }

@@ -1,7 +1,6 @@
 package com.example.zigzag.src.signIn;
 
 import android.annotation.SuppressLint;
-import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -15,9 +14,7 @@ import androidx.annotation.Nullable;
 
 import com.example.zigzag.R;
 import com.example.zigzag.src.BaseActivity;
-import com.example.zigzag.src.login.LogInActivity;
 import com.example.zigzag.src.signIn.interfaces.SignInActivityView;
-import com.example.zigzag.src.signIn.models.SignInResponse;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -176,6 +173,29 @@ public class SignInActivity extends BaseActivity implements SignInActivityView, 
 
     private void tryPostSignIn(){
         showProgressDialog();
+        id = mEtSignId.getText().toString();
+        pw = mEtSignPw.getText().toString();
+        ph = mEtSignPh.getText().toString();
+        if(is14 == true){
+            sIs14 = "Y";
+        }else{
+            sIs14 = "N";
+        }
+        if(isSv == true){
+            sIsSv = "Y";
+        }else{
+            sIsSv = "N";
+        }
+        if(isP == true){
+            sIsP = "Y";
+        }else{
+            sIsP = "N";
+        }
+        if(isA == true){
+            sIsA = "Y";
+        }else{
+            sIsA = "N";
+        }
         signInService.postSignIn(id,pw,ph,sIs14,sIsSv,sIsP,sIsA);
     }
 
@@ -191,12 +211,17 @@ public class SignInActivity extends BaseActivity implements SignInActivityView, 
     }
 
     @Override
-    public void SignInSuccess(SignInResponse.SignInResult signInResult) {
+    public void SignInSuccess(boolean isSuccess, int code, String message) {
         hideProgressDialog();
-        showCustomToast("회원가입되셨습니다!");
-        Intent intent = new Intent(this, LogInActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        startActivity(intent);
+        if(isSuccess == true) {
+            showCustomToast("회원가입되셨습니다!");
+//        Intent intent = new Intent(this, LogInActivity.class);
+//        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//        startActivity(intent);
+            finish();
+        }else{
+            showCustomToast("항목을 다시 확인하세요");
+        }
     }
 
     public void customOnClick(View view) {

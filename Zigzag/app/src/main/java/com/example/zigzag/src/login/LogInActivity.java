@@ -14,9 +14,7 @@ import androidx.annotation.Nullable;
 
 import com.example.zigzag.R;
 import com.example.zigzag.src.BaseActivity;
-import com.example.zigzag.src.home.mypage.MypageFragment;
 import com.example.zigzag.src.login.interfaces.LogInActivityView;
-import com.example.zigzag.src.login.models.LogInResponse;
 import com.example.zigzag.src.signIn.SignInActivity;
 
 import java.util.regex.Matcher;
@@ -108,8 +106,8 @@ public class LogInActivity extends BaseActivity implements LogInActivityView {
 
     private void tryPostLogIn(){
         showProgressDialog();
-        logInService.postLogIn("bige4739@gmail.com","1234");
-        //logInService.postLogIn(mEtId.getText().toString(),mEtPw.getText().toString());
+        //logInService.postLogIn("bige4739@gmail.com","1234");
+        logInService.postLogIn(mEtId.getText().toString(),mEtPw.getText().toString());
     }
 
     @Override
@@ -125,14 +123,23 @@ public class LogInActivity extends BaseActivity implements LogInActivityView {
     }
 
     @Override
-    public void logInSuccess(LogInResponse.LogInResult logInResult) {
+    public void logInSuccess(boolean isSuccess, int code, String message ,String jwt) {
         hideProgressDialog();
-        MypageFragment fragment = new MypageFragment();
-        Bundle bundle = new Bundle();
-        String contents = mEtId.getText().toString();
-        bundle.putString("id",contents);
-        fragment.setArguments(bundle);
-        showCustomToast(contents+"로그인성공");
+//        MypageFragment fragment = new MypageFragment();
+////        Bundle bundle = new Bundle();
+////        String contents = mEtId.getText().toString();
+////        bundle.putString("id",contents);
+////        fragment.setArguments(bundle);
+        if(isSuccess == true) {
+            Intent resultIntent = new Intent();
+            resultIntent.putExtra("id", mEtId.getText().toString());
+            setResult(1, resultIntent);
+            finish();
+            showCustomToast(mEtId.getText().toString() + "로그인성공");
+        }else{
+            showCustomToast("로그인 실패");
+        }
+
 //        Intent intent = new Intent(this, MypageFragment.class);
 //        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 //        startActivity(intent);
