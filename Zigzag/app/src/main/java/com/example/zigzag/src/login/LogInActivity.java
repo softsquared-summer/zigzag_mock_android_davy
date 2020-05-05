@@ -2,6 +2,7 @@ package com.example.zigzag.src.login;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Paint;
 import android.os.Bundle;
 import android.text.Editable;
@@ -19,6 +20,9 @@ import com.example.zigzag.src.signIn.SignInActivity;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import static com.example.zigzag.src.ApplicationClass.X_ACCESS_TOKEN;
+import static com.example.zigzag.src.ApplicationClass.sSharedPreferences;
 
 public class LogInActivity extends BaseActivity implements LogInActivityView {
     private EditText mEtId;
@@ -125,14 +129,14 @@ public class LogInActivity extends BaseActivity implements LogInActivityView {
     @Override
     public void logInSuccess(boolean isSuccess, int code, String message ,String jwt) {
         hideProgressDialog();
-//        MypageFragment fragment = new MypageFragment();
-////        Bundle bundle = new Bundle();
-////        String contents = mEtId.getText().toString();
-////        bundle.putString("id",contents);
-////        fragment.setArguments(bundle);
+
         if(isSuccess == true) {
+            SharedPreferences.Editor editor = sSharedPreferences.edit();
+            editor.putString(X_ACCESS_TOKEN,jwt);
+            editor.commit();
             Intent resultIntent = new Intent();
             resultIntent.putExtra("id", mEtId.getText().toString());
+            resultIntent.putExtra("jwt",X_ACCESS_TOKEN);
             setResult(1, resultIntent);
             finish();
             showCustomToast(mEtId.getText().toString() + "로그인성공");

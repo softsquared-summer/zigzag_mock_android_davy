@@ -1,5 +1,6 @@
 package com.example.zigzag.src.setup;
 
+import android.content.Intent;
 import android.graphics.Paint;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -16,6 +17,9 @@ import com.example.zigzag.R;
 import com.example.zigzag.src.BaseActivity;
 import com.example.zigzag.src.CustomDialog;
 import com.example.zigzag.src.setup.interfaces.SetupActivityView;
+import com.example.zigzag.src.withdrawal.WithdrawalActivity;
+
+import java.util.Objects;
 
 public class SetupActivity extends BaseActivity implements SetupActivityView {
 
@@ -38,10 +42,18 @@ public class SetupActivity extends BaseActivity implements SetupActivityView {
 
         mToolbar = findViewById(R.id.setup_toolbar);
         setSupportActionBar(mToolbar);
-        getSupportActionBar().setDisplayShowTitleEnabled(true);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayShowTitleEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_back);
 
+        mTvWithdrawal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SetupActivity.this, WithdrawalActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+            }
+        });
         mBtnLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -88,8 +100,8 @@ public class SetupActivity extends BaseActivity implements SetupActivityView {
 //        Bundle bundle = new Bundle();
 //        fragment.setArguments(bundle);
 ////        Intent intent = new Intent(this, MypageFragment.class);
-////        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-////        startActivity(intent);
+//////        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//////        startActivity(intent);
 //    }
 
     public void customOnClick(View view) {

@@ -1,8 +1,9 @@
 package com.example.zigzag.src.outer.all;
 
-import com.example.zigzag.src.home.interfaces.HomeActivityView;
-import com.example.zigzag.src.home.interfaces.HomeRetrofitInterface;
 import com.example.zigzag.src.main.models.DefaultResponse;
+import com.example.zigzag.src.outer.all.interfaces.AllFragmentView;
+import com.example.zigzag.src.outer.all.interfaces.AllRetrofitInterface;
+import com.example.zigzag.src.outer.all.models.OuterAllResponse;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -11,29 +12,50 @@ import retrofit2.Response;
 import static com.example.zigzag.src.ApplicationClass.getRetrofit;
 
 class AllService {
-    private final HomeActivityView mHomeActivityView;
+    private final AllFragmentView mAllFragmentView;
 
-    AllService(final HomeActivityView homeActivityView) {
-        this.mHomeActivityView = homeActivityView;
+    AllService(final AllFragmentView allFragmentView) {
+        this.mAllFragmentView = allFragmentView;
     }
 
     void getTest() {
-        final HomeRetrofitInterface homeRetrofitInterface = getRetrofit().create(HomeRetrofitInterface.class);
-        homeRetrofitInterface.getTest().enqueue(new Callback<DefaultResponse>() {
+        final AllRetrofitInterface allRetrofitInterface = getRetrofit().create(AllRetrofitInterface.class);
+        allRetrofitInterface.getTest().enqueue(new Callback<DefaultResponse>() {
             @Override
             public void onResponse(Call<DefaultResponse> call, Response<DefaultResponse> response) {
                 final DefaultResponse defaultResponse = response.body();
                 if (defaultResponse == null) {
-                    mHomeActivityView.validateFailure(null);
+                    mAllFragmentView.validateFailure(null);
                     return;
                 }
 
-                mHomeActivityView.validateSuccess(defaultResponse.getMessage());
+                mAllFragmentView.validateSuccess(defaultResponse.getMessage());
             }
 
             @Override
             public void onFailure(Call<DefaultResponse> call, Throwable t) {
-                mHomeActivityView.validateFailure(null);
+                mAllFragmentView.validateFailure(null);
+            }
+        });
+    }
+
+    void getItemList() {
+        final AllRetrofitInterface allRetrofitInterface = getRetrofit().create(AllRetrofitInterface.class);
+        allRetrofitInterface.getItemList().enqueue(new Callback<OuterAllResponse>() {
+            @Override
+            public void onResponse(Call<OuterAllResponse> call, Response<OuterAllResponse> response) {
+                final OuterAllResponse outerAllResponse = response.body();
+                if (outerAllResponse == null) {
+                    mAllFragmentView.validateFailure(null);
+                    return;
+                }
+
+                mAllFragmentView.getItemSuccess(outerAllResponse.getIsSuccess(),outerAllResponse.getCode(), outerAllResponse.getMessage(),outerAllResponse.getOuterAllResults());
+            }
+
+            @Override
+            public void onFailure(Call<OuterAllResponse> call, Throwable t) {
+                mAllFragmentView.validateFailure(null);
             }
         });
     }

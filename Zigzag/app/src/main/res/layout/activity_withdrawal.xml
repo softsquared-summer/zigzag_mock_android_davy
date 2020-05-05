@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/withdrawal_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#BEF8F6F6"
+    android:backgroundTint="#ffffff"
+    tools:context=".src.outer.BottomActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/withdrawal_appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:background="#ffffff"
+        android:padding="10dp"
+        app:elevation="0dp">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/withdrawal_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:background="#ffffff"
+            android:backgroundTint="#ffffff"
+            app:title="회원탈퇴"
+            app:titleTextAppearance="@style/TextAppearance.Widget.Event.Toolbar.Title"
+            app:titleTextColor="#000000" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="?android:attr/actionBarSize">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="1200dp"
+                android:src="@drawable/image_withdrawal" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:orientation="horizontal"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="30dp">
+
+                <Button
+                    android:id="@+id/withdrawal_positive"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/border_round_gray"
+                    android:text="탈퇴할래요"
+                    android:textColor="#000000"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:onClick="customOnClick"/>
+
+                <Button
+                    android:id="@+id/withdrawal_negative"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/border_round"
+                    android:text="탈퇴 안 할래요"
+                    android:textColor="#ffffff"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:onClick="customOnClick"/>
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

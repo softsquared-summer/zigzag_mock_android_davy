@@ -1,7 +1,6 @@
-package com.example.zigzag.src.outer.all.interfaces;
+package com.example.zigzag.src.withdrawal.interfaces;
 
 import com.example.zigzag.src.main.models.DefaultResponse;
-import com.example.zigzag.src.outer.all.models.OuterAllResponse;
 
 import okhttp3.RequestBody;
 import retrofit2.Call;
@@ -11,7 +10,7 @@ import retrofit2.http.POST;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
 
-public interface AllRetrofitInterface {
+public interface WithdrawalRetrofitInterface {
 //    @GET("/test")
     @GET("/jwt")
     Call<DefaultResponse> getTest();
@@ -25,6 +24,4 @@ public interface AllRetrofitInterface {
     @POST("/test")
     Call<DefaultResponse> postTest(@Body RequestBody params);
 
-    @GET("/items?category=아우터")
-    Call<OuterAllResponse> getItemList();
 }
