@@ -14,11 +14,11 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.example.zigzag.R;
 import com.example.zigzag.src.BaseActivity;
-import com.example.zigzag.src.dress.dressall.BottomAllFragment;
-import com.example.zigzag.src.dress.dresslong.ShortsFragment;
+import com.example.zigzag.src.dress.dressall.DressAllFragment;
+import com.example.zigzag.src.dress.dresslong.DressLongFragment;
 import com.example.zigzag.src.dress.interfaces.DressActivityView;
-import com.example.zigzag.src.dress.middy.SlacksFragment;
-import com.example.zigzag.src.dress.mini.StraightFragment;
+import com.example.zigzag.src.dress.middy.MiddyFragment;
+import com.example.zigzag.src.dress.mini.MiniFragment;
 import com.google.android.material.tabs.TabLayout;
 
 public class DressActivity extends BaseActivity implements DressActivityView {
@@ -86,16 +86,16 @@ public class DressActivity extends BaseActivity implements DressActivityView {
         public Fragment getItem(int position) {
             switch (position){
                 case 0:
-                    BottomAllFragment all = new BottomAllFragment();
+                    DressAllFragment all = new DressAllFragment();
                     return all;
                 case 1:
-                    StraightFragment mini = new StraightFragment();
+                    MiniFragment mini = new MiniFragment();
                     return mini;
                 case 2:
-                    SlacksFragment middy = new SlacksFragment();
+                    MiddyFragment middy = new MiddyFragment();
                     return middy;
                 case 3:
-                    ShortsFragment dressLong = new ShortsFragment();
+                    DressLongFragment dressLong = new DressLongFragment();
                     return dressLong;
                 default:
                     return null;

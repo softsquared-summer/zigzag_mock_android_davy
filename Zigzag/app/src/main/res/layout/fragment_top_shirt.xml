@@ -14,7 +14,7 @@
             android:background="#ffffff">
         <androidx.appcompat.widget.AppCompatCheckBox
             android:layout_margin="5dp"
-            android:id="@+id/outer_all_check_free"
+            android:id="@+id/top_shirt_check_free"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:button="@drawable/checkbox_custom_free"
@@ -32,7 +32,7 @@
                 android:layout_marginRight="10dp"
                 android:layout_marginLeft="10dp">
             <TextView
-                android:id="@+id/outer_all_filter_price"
+                android:id="@+id/top_shirt_filter_price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="↓저가순"
@@ -43,7 +43,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_gravity="end"/>
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_outer_all"
+                android:id="@+id/rv_top_shirt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"/>

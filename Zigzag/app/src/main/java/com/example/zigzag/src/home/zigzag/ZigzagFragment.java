@@ -11,12 +11,14 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.widget.NestedScrollView;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.zigzag.R;
+import com.example.zigzag.src.MyRecyclerItemsViewAdapter;
+import com.example.zigzag.src.home.zigzag.interfaces.ZigzagFragmentView;
+import com.example.zigzag.src.outer.cardigan.models.ItemsResponse;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 
@@ -25,7 +27,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 
-public class ZigzagFragment extends Fragment {
+public class ZigzagFragment extends Fragment implements MyRecyclerItemsViewAdapter.OnItemClickListener, ZigzagFragmentView {
     ViewGroup viewGroup;
     ViewPager viewPager;
     TabLayout tabLayout;
@@ -33,10 +35,10 @@ public class ZigzagFragment extends Fragment {
     private NestedScrollView mScrollView;
     private FloatingActionButton mFloatingBtn;
 
-    private RecyclerView mRecyclerView;
-    private MyRecyclerViewAdapter mAdapter;
-    private RecyclerView.LayoutManager mLayoutManager;
-    private ArrayList<MyData> itemList = new ArrayList<>();
+    private RecyclerView mItemsRecyclerView;
+    private MyRecyclerItemsViewAdapter mAdapter;
+    private ArrayList<ItemsResponse.ItemsResult> mItemList = new ArrayList<ItemsResponse.ItemsResult>();
+    private ZigzagService mZigzagService;
 
     int images[] = {R.drawable.banner1, R.drawable.banner2, R.drawable.banner3};
     MyCustomPagerAdapter myCustomPagerAdapter;
@@ -62,15 +64,6 @@ public class ZigzagFragment extends Fragment {
         tabLayout = viewGroup.findViewById(R.id.zig_banner_tab);
         tabLayout.setupWithViewPager(viewPager, true);
 
-        mRecyclerView = viewGroup.findViewById(R.id.rv_today_item);
-        mRecyclerView.setHasFixedSize(true);
-        mAdapter = new MyRecyclerViewAdapter(itemList);
-
-        mLayoutManager = new GridLayoutManager(getActivity(),2);
-        mRecyclerView.setLayoutManager(mLayoutManager);
-        mRecyclerView.setItemAnimator(new DefaultItemAnimator());
-        mRecyclerView.setAdapter(mAdapter);
-
         mScrollView = viewGroup.findViewById(R.id.zig_scroll);
         mFloatingBtn = viewGroup.findViewById(R.id.zig_fab);
 
@@ -81,8 +74,28 @@ public class ZigzagFragment extends Fragment {
             }
         });
 
+        mItemList = new ArrayList<ItemsResponse.ItemsResult>();
+        initView(viewGroup);
+
+        getItemList();
+
         return viewGroup;
     }
+
+    void initView(View view) {
+        mItemsRecyclerView = viewGroup.findViewById(R.id.rv_today_item);
+        RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(getContext(), 3);
+        mItemsRecyclerView.setLayoutManager(mLayoutManager);
+        mAdapter = new MyRecyclerItemsViewAdapter(mItemList, getContext());
+        mAdapter.setOnItemClickListener(this);
+        mItemsRecyclerView.setAdapter(mAdapter);
+    }
+
+    private void getItemList() {
+        mZigzagService.getItemList();
+    }
+
+
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
@@ -92,14 +105,7 @@ public class ZigzagFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        initDataset();
-    }
-
-    private void initDataset(){
-
-        for(int i = 0; i < 20; i++){
-            itemList.add(new MyData(R.drawable.item_photo,"팜므뮤즈","블라우스","42,000",false));
-        }
+        mZigzagService = new ZigzagService(this);
 
     }
 
@@ -142,4 +148,30 @@ public class ZigzagFragment extends Fragment {
         }
     }
 
+    @Override
+    public void validateSuccess(String text) {
+
+    }
+    @Override
+    public void validateFailure(String message) {
+
+    }
+
+    @Override
+    public void getItemSuccess(boolean isSuccess, int code, String message, ArrayList<ItemsResponse.ItemsResult> itemsResults) {
+        if (isSuccess) {
+            System.out.println("성공");
+            mItemList.clear();
+            mItemList.addAll(itemsResults);
+            mAdapter.notifyDataSetChanged();
+        }
+    }
+
+    @Override
+    public void onItemClick(View view, ItemsResponse.ItemsResult item) {
+        System.out.println(item.getItem_name());
+//        Intent intent = new Intent(getContext(),ItemDetail.class )
+//        intent.putExtra("item_id",item.getmItemId());
+//        startActivity(intent);
+    }
 }

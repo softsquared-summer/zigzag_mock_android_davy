@@ -1,8 +1,8 @@
 package com.example.zigzag.src.bottom.bottomall;
 
-import com.example.zigzag.src.home.interfaces.HomeActivityView;
-import com.example.zigzag.src.home.interfaces.HomeRetrofitInterface;
-import com.example.zigzag.src.main.models.DefaultResponse;
+import com.example.zigzag.src.bottom.bottomall.interfaces.BottomAllFragmentView;
+import com.example.zigzag.src.bottom.bottomall.interfaces.BottomAllRetrofitInterface;
+import com.example.zigzag.src.outer.cardigan.models.ItemsResponse;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -11,29 +11,29 @@ import retrofit2.Response;
 import static com.example.zigzag.src.ApplicationClass.getRetrofit;
 
 class BottomAllService {
-    private final HomeActivityView mHomeActivityView;
+    private final BottomAllFragmentView mBottomAllFragmentView;
 
-    BottomAllService(final HomeActivityView homeActivityView) {
-        this.mHomeActivityView = homeActivityView;
+    BottomAllService(final BottomAllFragmentView bottomAllFragmentView) {
+        this.mBottomAllFragmentView = bottomAllFragmentView;
     }
 
-    void getTest() {
-        final HomeRetrofitInterface homeRetrofitInterface = getRetrofit().create(HomeRetrofitInterface.class);
-        homeRetrofitInterface.getTest().enqueue(new Callback<DefaultResponse>() {
+    void getItemList() {
+        final BottomAllRetrofitInterface bottomAllRetrofitInterface = getRetrofit().create(BottomAllRetrofitInterface.class);
+        bottomAllRetrofitInterface.getItemList().enqueue(new Callback<ItemsResponse>() {
             @Override
-            public void onResponse(Call<DefaultResponse> call, Response<DefaultResponse> response) {
-                final DefaultResponse defaultResponse = response.body();
-                if (defaultResponse == null) {
-                    mHomeActivityView.validateFailure(null);
+            public void onResponse(Call<ItemsResponse> call, Response<ItemsResponse> response) {
+                final ItemsResponse itemsAllResponse = response.body();
+                if (itemsAllResponse == null) {
+                    mBottomAllFragmentView.validateFailure(null);
                     return;
                 }
 
-                mHomeActivityView.validateSuccess(defaultResponse.getMessage());
+                mBottomAllFragmentView.getItemSuccess(itemsAllResponse.getIsSuccess(),itemsAllResponse.getCode(), itemsAllResponse.getMessage(),itemsAllResponse.getItemsResults());
             }
 
             @Override
-            public void onFailure(Call<DefaultResponse> call, Throwable t) {
-                mHomeActivityView.validateFailure(null);
+            public void onFailure(Call<ItemsResponse> call, Throwable t) {
+                mBottomAllFragmentView.validateFailure(null);
             }
         });
     }

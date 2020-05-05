@@ -1,6 +1,7 @@
 package com.example.zigzag.src.top.shirt.interfaces;
 
 import com.example.zigzag.src.main.models.DefaultResponse;
+import com.example.zigzag.src.outer.cardigan.models.ItemsResponse;
 
 import okhttp3.RequestBody;
 import retrofit2.Call;
@@ -23,4 +24,7 @@ public interface ShirtRetrofitInterface {
 
     @POST("/test")
     Call<DefaultResponse> postTest(@Body RequestBody params);
+
+    @GET("/items?category=상의&category_detail=셔츠/남방")
+    Call<ItemsResponse> getItemList();
 }

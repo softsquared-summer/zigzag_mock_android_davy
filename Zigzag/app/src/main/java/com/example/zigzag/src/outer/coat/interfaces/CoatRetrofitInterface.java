@@ -1,6 +1,7 @@
 package com.example.zigzag.src.outer.coat.interfaces;
 
 import com.example.zigzag.src.main.models.DefaultResponse;
+import com.example.zigzag.src.outer.cardigan.models.ItemsResponse;
 
 import okhttp3.RequestBody;
 import retrofit2.Call;
@@ -23,4 +24,7 @@ public interface CoatRetrofitInterface {
 
     @POST("/test")
     Call<DefaultResponse> postTest(@Body RequestBody params);
+
+    @GET("/items?category=아우터&category_detail=코트")
+    Call<ItemsResponse> getItemList();
 }

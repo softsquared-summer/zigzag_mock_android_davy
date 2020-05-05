@@ -1,8 +1,8 @@
 package com.example.zigzag.src.outer.jacket;
 
-import com.example.zigzag.src.home.interfaces.HomeActivityView;
-import com.example.zigzag.src.home.interfaces.HomeRetrofitInterface;
-import com.example.zigzag.src.main.models.DefaultResponse;
+import com.example.zigzag.src.outer.cardigan.models.ItemsResponse;
+import com.example.zigzag.src.outer.jacket.interfaces.JacketFragmentView;
+import com.example.zigzag.src.outer.jacket.interfaces.JacketRetrofitInterface;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -11,29 +11,29 @@ import retrofit2.Response;
 import static com.example.zigzag.src.ApplicationClass.getRetrofit;
 
 class JacketService {
-    private final HomeActivityView mHomeActivityView;
+    private final JacketFragmentView mJacketFragmentView;
 
-    JacketService(final HomeActivityView homeActivityView) {
-        this.mHomeActivityView = homeActivityView;
+    JacketService(final JacketFragmentView jacketFragmentView) {
+        this.mJacketFragmentView = jacketFragmentView;
     }
 
-    void getTest() {
-        final HomeRetrofitInterface homeRetrofitInterface = getRetrofit().create(HomeRetrofitInterface.class);
-        homeRetrofitInterface.getTest().enqueue(new Callback<DefaultResponse>() {
+    void getItemList() {
+        final JacketRetrofitInterface jacketRetrofitInterface = getRetrofit().create(JacketRetrofitInterface.class);
+        jacketRetrofitInterface.getItemList().enqueue(new Callback<ItemsResponse>() {
             @Override
-            public void onResponse(Call<DefaultResponse> call, Response<DefaultResponse> response) {
-                final DefaultResponse defaultResponse = response.body();
-                if (defaultResponse == null) {
-                    mHomeActivityView.validateFailure(null);
+            public void onResponse(Call<ItemsResponse> call, Response<ItemsResponse> response) {
+                final ItemsResponse itemsAllResponse = response.body();
+                if (itemsAllResponse == null) {
+                    mJacketFragmentView.validateFailure(null);
                     return;
                 }
 
-                mHomeActivityView.validateSuccess(defaultResponse.getMessage());
+                mJacketFragmentView.getItemSuccess(itemsAllResponse.getIsSuccess(),itemsAllResponse.getCode(), itemsAllResponse.getMessage(),itemsAllResponse.getItemsResults());
             }
 
             @Override
-            public void onFailure(Call<DefaultResponse> call, Throwable t) {
-                mHomeActivityView.validateFailure(null);
+            public void onFailure(Call<ItemsResponse> call, Throwable t) {
+                mJacketFragmentView.validateFailure(null);
             }
         });
     }

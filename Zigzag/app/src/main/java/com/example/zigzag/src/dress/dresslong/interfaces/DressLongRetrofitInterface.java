@@ -1,6 +1,7 @@
 package com.example.zigzag.src.dress.dresslong.interfaces;
 
 import com.example.zigzag.src.main.models.DefaultResponse;
+import com.example.zigzag.src.outer.cardigan.models.ItemsResponse;
 
 import okhttp3.RequestBody;
 import retrofit2.Call;
@@ -23,4 +24,7 @@ public interface DressLongRetrofitInterface {
 
     @POST("/test")
     Call<DefaultResponse> postTest(@Body RequestBody params);
+
+    @GET("/items?category=원피스/세트&category_detail=롱원피스")
+    Call<ItemsResponse> getItemList();
 }

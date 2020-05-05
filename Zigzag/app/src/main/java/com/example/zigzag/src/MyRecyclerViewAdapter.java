@@ -12,7 +12,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
 import com.example.zigzag.R;
 import com.example.zigzag.src.outer.all.models.OuterAllResponse;
 
@@ -53,8 +52,9 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
     public void onBindViewHolder(@NonNull MyRecyclerViewAdapter.RecyclerViewHolders holder, int position) {
         final OuterAllResponse.OuterAllResult item = mItemList.get(position);
 
-        String url = item.getImage().getImage_url1();
-        Glide.with(mContext).load(url).thumbnail(0.5f).into(holder.mItemPhoto);
+//        String url = item.getImage().getImage_url1();
+//        Glide.with(mContext).load(url).thumbnail(0.5f).into(holder.mItemPhoto);
+        holder.mItemPhoto.setImageResource(R.drawable.image_default);
         if(item.getIs_heart().equals("Y")){
             holder.mItemLike.setChecked(true);
         }else{

@@ -14,11 +14,11 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.example.zigzag.R;
 import com.example.zigzag.src.BaseActivity;
+import com.example.zigzag.src.bottom.bottomall.BottomAllFragment;
 import com.example.zigzag.src.bottom.interfaces.BottomActivityView;
-import com.example.zigzag.src.dress.dressall.BottomAllFragment;
-import com.example.zigzag.src.dress.dresslong.ShortsFragment;
-import com.example.zigzag.src.dress.middy.SlacksFragment;
-import com.example.zigzag.src.dress.mini.StraightFragment;
+import com.example.zigzag.src.bottom.shorts.ShortsFragment;
+import com.example.zigzag.src.bottom.slacks.SlacksFragment;
+import com.example.zigzag.src.bottom.straight.StraightFragment;
 import com.google.android.material.tabs.TabLayout;
 
 public class BottomActivity extends BaseActivity implements BottomActivityView {

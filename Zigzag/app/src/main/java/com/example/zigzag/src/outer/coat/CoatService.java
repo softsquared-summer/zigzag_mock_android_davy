@@ -1,8 +1,8 @@
 package com.example.zigzag.src.outer.coat;
 
-import com.example.zigzag.src.home.interfaces.HomeActivityView;
-import com.example.zigzag.src.home.interfaces.HomeRetrofitInterface;
-import com.example.zigzag.src.main.models.DefaultResponse;
+import com.example.zigzag.src.outer.cardigan.models.ItemsResponse;
+import com.example.zigzag.src.outer.coat.interfaces.CoatFragmentView;
+import com.example.zigzag.src.outer.coat.interfaces.CoatRetrofitInterface;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -11,29 +11,29 @@ import retrofit2.Response;
 import static com.example.zigzag.src.ApplicationClass.getRetrofit;
 
 class CoatService {
-    private final HomeActivityView mHomeActivityView;
+    private final CoatFragmentView mCoatFragmentView;
 
-    CoatService(final HomeActivityView homeActivityView) {
-        this.mHomeActivityView = homeActivityView;
+    CoatService(final CoatFragmentView coatFragmentView) {
+        this.mCoatFragmentView = coatFragmentView;
     }
 
-    void getTest() {
-        final HomeRetrofitInterface homeRetrofitInterface = getRetrofit().create(HomeRetrofitInterface.class);
-        homeRetrofitInterface.getTest().enqueue(new Callback<DefaultResponse>() {
+    void getItemList() {
+        final CoatRetrofitInterface coatRetrofitInterface = getRetrofit().create(CoatRetrofitInterface.class);
+        coatRetrofitInterface.getItemList().enqueue(new Callback<ItemsResponse>() {
             @Override
-            public void onResponse(Call<DefaultResponse> call, Response<DefaultResponse> response) {
-                final DefaultResponse defaultResponse = response.body();
-                if (defaultResponse == null) {
-                    mHomeActivityView.validateFailure(null);
+            public void onResponse(Call<ItemsResponse> call, Response<ItemsResponse> response) {
+                final ItemsResponse itemsAllResponse = response.body();
+                if (itemsAllResponse == null) {
+                    mCoatFragmentView.validateFailure(null);
                     return;
                 }
 
-                mHomeActivityView.validateSuccess(defaultResponse.getMessage());
+                mCoatFragmentView.getItemSuccess(itemsAllResponse.getIsSuccess(),itemsAllResponse.getCode(), itemsAllResponse.getMessage(),itemsAllResponse.getItemsResults());
             }
 
             @Override
-            public void onFailure(Call<DefaultResponse> call, Throwable t) {
-                mHomeActivityView.validateFailure(null);
+            public void onFailure(Call<ItemsResponse> call, Throwable t) {
+                mCoatFragmentView.validateFailure(null);
             }
         });
     }

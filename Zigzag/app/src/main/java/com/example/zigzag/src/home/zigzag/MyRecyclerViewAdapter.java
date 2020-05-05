@@ -50,6 +50,7 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
     @Override
     public void onBindViewHolder(@NonNull final RecyclerViewHolder holder, final int position) {
 
+
         holder.itemPhoto.setImageResource(mDataset.get(position).getItemPhoto());
         holder.itemShopName.setText(mDataset.get(position).getShopName());
         holder.itemInfo.setText(mDataset.get(position).getItemInfo());
