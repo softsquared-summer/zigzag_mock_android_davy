@@ -55,13 +55,17 @@
         android:text="찜한 상품 0"
         android:textColor="#9C9B9B"
         android:textSize="15sp"/>
-    <LinearLayout
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent">-->
+<!--    <ImageView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="300dp"-->
+<!--        android:src="@drawable/empty_like"-->
+<!--        android:layout_marginTop="90dp"/>-->
+<!--    </LinearLayout>-->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_likes"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="300dp"
-        android:src="@drawable/empty_like"
-        android:layout_marginTop="90dp"/>
-    </LinearLayout>
+        android:layout_height="wrap_content"/>
 </LinearLayout>

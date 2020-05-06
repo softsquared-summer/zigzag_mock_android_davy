@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/linear_shop_item"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginRight="15dp"
+    android:layout_marginLeft="15dp"
+    android:layout_marginTop="7dp"
+    android:layout_marginBottom="5dp"
+    android:orientation="vertical">
+    <LinearLayout
+        android:id="@+id/item_shop_all"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/tv_shopRank"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="1"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        android:textColor="#ACABAB"/>
+
+    <FrameLayout
+        android:id="@+id/frame_shop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_toRightOf="@id/tv_shopRank">
+
+        <ImageView
+            android:id="@+id/shop_photo"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/image_shop_default" />
+
+        <ImageView
+            android:id="@+id/item_check_like"
+            android:layout_width="17dp"
+            android:layout_height="17dp"
+            android:src="@drawable/ic_shop_check_press"
+            android:layout_marginLeft="2dp"
+            android:layout_marginTop="3dp"
+            android:layout_gravity="bottom|end"/>
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/linear_item_shop_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="9dp"
+        android:layout_toRightOf="@+id/frame_shop"
+        android:orientation="vertical"
+        android:layout_gravity="center">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/item_shop_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:layout_toRightOf="@+id/frame_shop"
+                android:text="쇼핑몰 이름"
+                android:textColor="#000000"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/item_shop_icon"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_gravity="bottom"
+                android:layout_marginLeft="5dp"
+                android:layout_marginBottom="2dp"
+                android:layout_toRightOf="@+id/item_shop_name"
+                android:src="@drawable/ic_bucket" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/item_shop_tag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/linear_item_shop_name"
+            android:layout_toRightOf="@+id/frame_shop"
+            android:textSize="10sp"
+            android:textColor="#C6C4C4"
+            android:text="10대  20대" />
+    </LinearLayout>
+    </LinearLayout>
+    <View
+        style="@style/Divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/item_shop_all"
+        android:backgroundTint="#EDD1D0D0"
+        android:layout_marginTop="10dp"/>
+</RelativeLayout>

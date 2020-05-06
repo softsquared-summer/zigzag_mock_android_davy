@@ -1,8 +1,8 @@
 package com.example.zigzag.src.home.shoppingmall.shoprank;
 
-import com.example.zigzag.src.home.interfaces.HomeActivityView;
-import com.example.zigzag.src.home.interfaces.HomeRetrofitInterface;
-import com.example.zigzag.src.main.models.DefaultResponse;
+import com.example.zigzag.src.home.shoppingmall.shoprank.interfaces.ShopRankFragmentView;
+import com.example.zigzag.src.home.shoppingmall.shoprank.interfaces.ShopRankRetrofitInterface;
+import com.example.zigzag.src.home.shoppingmall.shoprank.models.ShopRankResponse;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -11,29 +11,29 @@ import retrofit2.Response;
 import static com.example.zigzag.src.ApplicationClass.getRetrofit;
 
 class ShopRankService {
-    private final HomeActivityView mHomeActivityView;
+    private final ShopRankFragmentView mShopRankFragmentView;
 
-    ShopRankService(final HomeActivityView homeActivityView) {
-        this.mHomeActivityView = homeActivityView;
+    ShopRankService(final ShopRankFragmentView shopRankFragmentView) {
+        this.mShopRankFragmentView = shopRankFragmentView;
     }
 
-    void getTest() {
-        final HomeRetrofitInterface homeRetrofitInterface = getRetrofit().create(HomeRetrofitInterface.class);
-        homeRetrofitInterface.getTest().enqueue(new Callback<DefaultResponse>() {
+    void getShopRank(){
+        final ShopRankRetrofitInterface shopRankRetrofitInterface = getRetrofit().create(ShopRankRetrofitInterface.class);
+        shopRankRetrofitInterface.getShopRank().enqueue(new Callback<ShopRankResponse>() {
             @Override
-            public void onResponse(Call<DefaultResponse> call, Response<DefaultResponse> response) {
-                final DefaultResponse defaultResponse = response.body();
-                if (defaultResponse == null) {
-                    mHomeActivityView.validateFailure(null);
+            public void onResponse(Call<ShopRankResponse> call, Response<ShopRankResponse> response) {
+                final ShopRankResponse shopRankResponse = response.body();
+                if (shopRankResponse == null) {
+                    mShopRankFragmentView.validateFailure(null);
                     return;
                 }
 
-                mHomeActivityView.validateSuccess(defaultResponse.getMessage());
+                mShopRankFragmentView.getShopRankSuccess(shopRankResponse.getIsSuccess(),shopRankResponse.getCode(), shopRankResponse.getMessage(),shopRankResponse.getShopRankResults());
             }
 
             @Override
-            public void onFailure(Call<DefaultResponse> call, Throwable t) {
-                mHomeActivityView.validateFailure(null);
+            public void onFailure(Call<ShopRankResponse> call, Throwable t) {
+                mShopRankFragmentView.validateFailure(null);
             }
         });
     }

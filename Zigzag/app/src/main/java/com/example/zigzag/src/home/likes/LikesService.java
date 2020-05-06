@@ -1,8 +1,8 @@
 package com.example.zigzag.src.home.likes;
 
-import com.example.zigzag.src.home.interfaces.HomeActivityView;
-import com.example.zigzag.src.home.interfaces.HomeRetrofitInterface;
-import com.example.zigzag.src.main.models.DefaultResponse;
+import com.example.zigzag.src.home.likes.interfaces.LikesFragmentView;
+import com.example.zigzag.src.home.likes.interfaces.LikesRetrofitInterface;
+import com.example.zigzag.src.outer.cardigan.models.ItemsResponse;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -11,29 +11,29 @@ import retrofit2.Response;
 import static com.example.zigzag.src.ApplicationClass.getRetrofit;
 
 class LikesService {
-    private final HomeActivityView mHomeActivityView;
+    private final LikesFragmentView mLikesFragmentView;
 
-    LikesService(final HomeActivityView homeActivityView) {
-        this.mHomeActivityView = homeActivityView;
+    LikesService(final LikesFragmentView likesFragmentView) {
+        this.mLikesFragmentView = likesFragmentView;
     }
 
-    void getTest() {
-        final HomeRetrofitInterface homeRetrofitInterface = getRetrofit().create(HomeRetrofitInterface.class);
-        homeRetrofitInterface.getTest().enqueue(new Callback<DefaultResponse>() {
+    void getItemList() {
+        final LikesRetrofitInterface likesRetrofitInterface = getRetrofit().create(LikesRetrofitInterface.class);
+        likesRetrofitInterface.getLikesItemList().enqueue(new Callback<ItemsResponse>() {
             @Override
-            public void onResponse(Call<DefaultResponse> call, Response<DefaultResponse> response) {
-                final DefaultResponse defaultResponse = response.body();
-                if (defaultResponse == null) {
-                    mHomeActivityView.validateFailure(null);
+            public void onResponse(Call<ItemsResponse> call, Response<ItemsResponse> response) {
+                final ItemsResponse itemsAllResponse = response.body();
+                if (itemsAllResponse == null) {
+                    mLikesFragmentView.validateFailure(null);
                     return;
                 }
 
-                mHomeActivityView.validateSuccess(defaultResponse.getMessage());
+                mLikesFragmentView.getItemSuccess(itemsAllResponse.getIsSuccess(),itemsAllResponse.getCode(), itemsAllResponse.getMessage(),itemsAllResponse.getItemsResults());
             }
 
             @Override
-            public void onFailure(Call<DefaultResponse> call, Throwable t) {
-                mHomeActivityView.validateFailure(null);
+            public void onFailure(Call<ItemsResponse> call, Throwable t) {
+                mLikesFragmentView.validateFailure(null);
             }
         });
     }

@@ -1,5 +1,6 @@
 package com.example.zigzag.src.home.shoppingmall.shoprank.interfaces;
 
+import com.example.zigzag.src.home.shoppingmall.shoprank.models.ShopRankResponse;
 import com.example.zigzag.src.main.models.DefaultResponse;
 
 import okhttp3.RequestBody;
@@ -23,4 +24,7 @@ public interface ShopRankRetrofitInterface {
 
     @POST("/test")
     Call<DefaultResponse> postTest(@Body RequestBody params);
+
+    @GET("/malls")
+    Call<ShopRankResponse> getShopRank();
 }

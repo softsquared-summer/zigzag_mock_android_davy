@@ -22,7 +22,7 @@ public class MiniFragment extends Fragment implements MyRecyclerItemsViewAdapter
     ViewGroup viewGroup;
     private RecyclerView mItemsRecyclerView;
     private MyRecyclerItemsViewAdapter mAdapter;
-    private ArrayList<ItemsResponse.ItemsResult> mItemList = new ArrayList<ItemsResponse.ItemsResult>();
+    private ArrayList<ItemsResponse.ItemsResult> mItemList;
     private MiniService mMiniService;
 
     @Override
