@@ -1,5 +1,6 @@
 package com.example.zigzag.src.outer.all;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.zigzag.R;
 import com.example.zigzag.src.MyRecyclerViewAdapter;
+import com.example.zigzag.src.itemdetail.ItemDetailActivity;
 import com.example.zigzag.src.outer.all.interfaces.AllFragmentView;
 import com.example.zigzag.src.outer.all.models.OuterAllResponse;
 
@@ -83,8 +85,8 @@ public class AllFragment extends Fragment implements MyRecyclerViewAdapter.OnIte
     public void onItemClick(View view, OuterAllResponse.OuterAllResult item) {
         //아이템 클릭시 이벤트
         System.out.println(item.getItem_name());
-//        Intent intent = new Intent(getContext(),ItemDetail.class )
-//        intent.putExtra("item_id",item.getmItemId());
-//        startActivity(intent);
+        Intent intent = new Intent(getContext(), ItemDetailActivity.class);
+        intent.putExtra("item_id",item.getItem_id());
+        startActivity(intent);
     }
 }

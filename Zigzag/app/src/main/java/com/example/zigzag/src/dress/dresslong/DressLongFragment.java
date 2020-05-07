@@ -1,5 +1,6 @@
 package com.example.zigzag.src.dress.dresslong;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.zigzag.R;
 import com.example.zigzag.src.MyRecyclerItemsViewAdapter;
 import com.example.zigzag.src.dress.dresslong.interfaces.DressLongFragmentView;
+import com.example.zigzag.src.itemdetail.ItemDetailActivity;
 import com.example.zigzag.src.outer.cardigan.models.ItemsResponse;
 
 import java.util.ArrayList;
@@ -79,10 +81,9 @@ public class DressLongFragment extends Fragment implements MyRecyclerItemsViewAd
     @Override
     public void onItemClick(View view, ItemsResponse.ItemsResult item) {
         System.out.println(item.getItem_name());
-//        Intent intent = new Intent(getContext(),ItemDetail.class )
-//        intent.putExtra("item_id",item.getmItemId());
-//        startActivity(intent);
-
+        Intent intent = new Intent(getContext(), ItemDetailActivity.class);
+        intent.putExtra("item_id",item.getItem_id());
+        startActivity(intent);
     }
 
 }

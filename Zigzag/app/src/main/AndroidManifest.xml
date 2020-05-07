@@ -35,6 +35,7 @@
         <activity android:name=".src.bottom.BottomActivity"/>
         <activity android:name=".src.setup.SetupActivity"/>
         <activity android:name=".src.withdrawal.WithdrawalActivity"/>
+        <activity android:name=".src.itemdetail.ItemDetailActivity"/>
     </application>
 
 </manifest>

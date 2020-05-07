@@ -10,6 +10,9 @@ public class ItemsResponse {
         @SerializedName("num")
         private int num;
 
+        @SerializedName("list")
+        private ArrayList<LikesItemList> likesItemsResults;
+
         public class LikesItemList{
             @SerializedName("item_id")
             private int item_id;
@@ -59,7 +62,6 @@ public class ItemsResponse {
             public String getPrice() {
                 return price;
             }
-
             public class ImageUrl{
                 @SerializedName("image_url1")
                 private String image_url1;
@@ -77,16 +79,15 @@ public class ItemsResponse {
             }
         }
 
-        @SerializedName("list")
-        private ArrayList<LikesItemList> likesItemsResults;
-
         public ArrayList<LikesItemList> getLikesItemsResults() {
             return likesItemsResults;
         }
 
+
         public int getNum() {
             return num;
         }
+
     }
 
     @SerializedName("result")

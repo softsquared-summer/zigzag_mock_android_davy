@@ -130,7 +130,7 @@ public class LogInActivity extends BaseActivity implements LogInActivityView {
     public void logInSuccess(boolean isSuccess, int code, String message ,String jwt) {
         hideProgressDialog();
 
-        if(isSuccess == true) {
+        if(isSuccess) {
             SharedPreferences.Editor editor = sSharedPreferences.edit();
             editor.putString(X_ACCESS_TOKEN,jwt);
             editor.commit();

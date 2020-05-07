@@ -1,5 +1,6 @@
 package com.example.zigzag.src.home.zigzag;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.LayoutInflater;
@@ -18,6 +19,7 @@ import androidx.viewpager.widget.ViewPager;
 import com.example.zigzag.R;
 import com.example.zigzag.src.MyRecyclerItemsViewAdapter;
 import com.example.zigzag.src.home.zigzag.interfaces.ZigzagFragmentView;
+import com.example.zigzag.src.itemdetail.ItemDetailActivity;
 import com.example.zigzag.src.outer.cardigan.models.ItemsResponse;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
@@ -170,8 +172,8 @@ public class ZigzagFragment extends Fragment implements MyRecyclerItemsViewAdapt
     @Override
     public void onItemClick(View view, ItemsResponse.ItemsResult item) {
         System.out.println(item.getItem_name());
-//        Intent intent = new Intent(getContext(),ItemDetail.class )
-//        intent.putExtra("item_id",item.getmItemId());
-//        startActivity(intent);
+        Intent intent = new Intent(getContext(), ItemDetailActivity.class);
+        intent.putExtra("item_id",item.getItem_id());
+        startActivity(intent);
     }
 }
