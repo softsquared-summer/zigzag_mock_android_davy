@@ -3,6 +3,7 @@ package com.example.zigzag.src.login;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.os.Bundle;
 import android.text.Editable;
@@ -64,7 +65,7 @@ public class LogInActivity extends BaseActivity implements LogInActivityView {
                     public void afterTextChanged(Editable s) {
                         if(!isEmail(mEtId.getText().toString())){
                             mTvId.setText("올바른 이메일 형식이 아닙니다");
-                            mTvId.setTextColor(R.color.colorError);
+                            mTvId.setTextColor(Color.RED);
                         }
                         else{
                             mTvId.setText("이메일");
@@ -91,7 +92,7 @@ public class LogInActivity extends BaseActivity implements LogInActivityView {
                     public void afterTextChanged(Editable s) {
                         if(mEtPw.getText().toString().length() < 6){
                             mTvPw.setText("비밀번호는 6자리 이상입니다");
-                            mTvPw.setTextColor(R.color.colorError);
+                            mTvId.setTextColor(Color.RED);
                         }
                         else{
                             mTvPw.setText("비밀번호");

@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.zigzag.R;
 import com.example.zigzag.src.MyRecyclerItemsViewAdapter;
 import com.example.zigzag.src.home.likes.interfaces.LikesFragmentView;
+import com.example.zigzag.src.itemdetail.models.ItemResponse;
 import com.example.zigzag.src.outer.cardigan.models.ItemsResponse;
 
 import java.util.ArrayList;

@@ -6,6 +6,7 @@ import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.ScrollView;
 
 import androidx.annotation.NonNull;
@@ -18,6 +19,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.example.zigzag.R;
 import com.example.zigzag.src.MyRecyclerItemsViewAdapter;
+import com.example.zigzag.src.bucket.BucketActivity;
 import com.example.zigzag.src.home.zigzag.interfaces.ZigzagFragmentView;
 import com.example.zigzag.src.itemdetail.ItemDetailActivity;
 import com.example.zigzag.src.outer.cardigan.models.ItemsResponse;
@@ -36,6 +38,8 @@ public class ZigzagFragment extends Fragment implements MyRecyclerItemsViewAdapt
 
     private NestedScrollView mScrollView;
     private FloatingActionButton mFloatingBtn;
+
+    private ImageView mBtnBucket;
 
     private RecyclerView mItemsRecyclerView;
     private MyRecyclerItemsViewAdapter mAdapter;
@@ -73,6 +77,16 @@ public class ZigzagFragment extends Fragment implements MyRecyclerItemsViewAdapt
             @Override
             public void onClick(View v) {
                 mScrollView.fullScroll(ScrollView.FOCUS_UP);
+            }
+        });
+
+        mBtnBucket = viewGroup.findViewById(R.id.bucket);
+
+        mBtnBucket.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(),BucketActivity.class);
+                startActivity(intent);
             }
         });
 

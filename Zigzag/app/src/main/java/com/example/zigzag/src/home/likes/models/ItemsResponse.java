@@ -2,8 +2,6 @@ package com.example.zigzag.src.home.likes.models;
 
 import com.google.gson.annotations.SerializedName;
 
-import java.util.ArrayList;
-
 public class ItemsResponse {
 
     public class ItemsResult {
@@ -11,7 +9,7 @@ public class ItemsResponse {
         private int num;
 
         @SerializedName("list")
-        private ArrayList<LikesItemList> likesItemsResults;
+        private LikesItemList likesItemsResults;
 
         public class LikesItemList{
             @SerializedName("item_id")
@@ -79,7 +77,7 @@ public class ItemsResponse {
             }
         }
 
-        public ArrayList<LikesItemList> getLikesItemsResults() {
+        public LikesItemList getLikesItemsResults() {
             return likesItemsResults;
         }
 
@@ -91,7 +89,7 @@ public class ItemsResponse {
     }
 
     @SerializedName("result")
-    private ArrayList<ItemsResult> itemsResults;
+    private ItemsResult itemsResults;
 
     @SerializedName("is_success")
     private boolean is_success;
@@ -119,7 +117,7 @@ public class ItemsResponse {
         return is_success;
     }
 
-    public ArrayList<ItemsResult> getItemsResults() {
+    public ItemsResult getItemsResults() {
         return itemsResults;
     }
 

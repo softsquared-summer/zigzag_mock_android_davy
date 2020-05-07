@@ -36,6 +36,8 @@
         <activity android:name=".src.setup.SetupActivity"/>
         <activity android:name=".src.withdrawal.WithdrawalActivity"/>
         <activity android:name=".src.itemdetail.ItemDetailActivity"/>
+        <activity android:name=".src.bucket.BucketActivity"/>
+        <activity android:name=".src.order.OrderActivity"/>
     </application>
 
 </manifest>

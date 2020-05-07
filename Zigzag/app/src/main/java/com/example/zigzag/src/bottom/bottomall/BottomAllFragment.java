@@ -74,7 +74,6 @@ public class BottomAllFragment extends Fragment implements MyRecyclerItemsViewAd
             mItemList.clear();
             mItemList.addAll(itemsResults);
             mAdapter.notifyDataSetChanged();
-
         }
     }
 

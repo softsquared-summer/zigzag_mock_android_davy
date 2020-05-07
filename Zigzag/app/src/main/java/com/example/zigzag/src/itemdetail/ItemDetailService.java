@@ -25,16 +25,14 @@ class ItemDetailService {
             @Override
             public void onResponse(Call<ItemResponse> call, Response<ItemResponse> response) {
 
-                //서버에서 api통신으로 반환되는 json형태의 response이다.
+
                 final ItemResponse itemResponse = response.body();
 
-                //서버에서 주는 값이 없다면, 통신실패
                 if (itemResponse == null) {
 
                     mItemDetailActivityView.validateFailure(null);
                     return;
                 }
-                // 통신 성공, api통신으로 반환된 response를 액티비티에 반환해준다.
                 mItemDetailActivityView.getItemDetailSuccess(itemResponse.isSuccess(),itemResponse.getCode(),itemResponse.getMessage(),itemResponse.getItemResult());
             }
 

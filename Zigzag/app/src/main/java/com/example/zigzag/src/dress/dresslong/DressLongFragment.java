@@ -74,7 +74,6 @@ public class DressLongFragment extends Fragment implements MyRecyclerItemsViewAd
             mItemList.clear();
             mItemList.addAll(itemsResults);
             mAdapter.notifyDataSetChanged();
-
         }
     }
 

@@ -12,7 +12,83 @@
         android:paddingLeft="15dp"
         android:paddingTop="15dp"
         android:paddingBottom="15dp"/>
-
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#77E6E5E5"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="10dp"
+        android:paddingTop="5dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/border_round_dialog"
+            android:orientation="vertical"
+            android:padding="10dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/buy_dialog_item_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="아이템 이름"
+                android:textColor="#000000" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
+            <ImageView
+                android:id="@+id/buy_dialog_finish"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:src="@drawable/ic_back_x"/>
+        </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp">
+                <ImageView
+                    android:id="@+id/buy_dialog_minus"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_m"
+                    android:layout_gravity="center"/>
+                <TextView
+                    android:id="@+id/buy_dialog_item_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="7dp"
+                    android:layout_marginRight="7dp"
+                    android:background="@drawable/border_round_empty2"
+                    android:paddingEnd="18dp"
+                    android:paddingLeft="18dp"
+                    android:paddingTop="3dp"
+                    android:paddingBottom="3dp"
+                    android:text="1"/>
+                <ImageView
+                    android:id="@+id/buy_dialog_plus"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_p"
+                    android:layout_gravity="center"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"/>
+                <TextView
+                    android:id="@+id/buy_dialog_item_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="40,000원"
+                    android:textColor="#000000"
+                    android:textStyle="bold"
+                    android:textSize="16sp"/>
+            </LinearLayout>
+        </LinearLayout>
+    </FrameLayout>
     <View
         style="@style/Divider"
         android:layout_width="match_parent"
@@ -22,7 +98,32 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="총 상품 금액"
+            android:textColor="#AEA9A9"
+            android:layout_gravity="center"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="40,000 원"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            android:textSize="23sp"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:layout_marginBottom="10dp">

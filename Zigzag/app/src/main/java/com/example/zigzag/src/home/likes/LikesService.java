@@ -2,7 +2,7 @@ package com.example.zigzag.src.home.likes;
 
 import com.example.zigzag.src.home.likes.interfaces.LikesFragmentView;
 import com.example.zigzag.src.home.likes.interfaces.LikesRetrofitInterface;
-import com.example.zigzag.src.outer.cardigan.models.ItemsResponse;
+import com.example.zigzag.src.home.likes.models.ItemsResponse;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -22,13 +22,13 @@ class LikesService {
         likesRetrofitInterface.getLikesItemList().enqueue(new Callback<ItemsResponse>() {
             @Override
             public void onResponse(Call<ItemsResponse> call, Response<ItemsResponse> response) {
-                final ItemsResponse itemsAllResponse = response.body();
-                if (itemsAllResponse == null) {
+                final ItemsResponse itemsResponse = response.body();
+                if (itemsResponse == null) {
                     mLikesFragmentView.validateFailure(null);
                     return;
                 }
 
-                mLikesFragmentView.getItemSuccess(itemsAllResponse.getIsSuccess(),itemsAllResponse.getCode(), itemsAllResponse.getMessage(),itemsAllResponse.getItemsResults());
+                mLikesFragmentView.getItemSuccess(itemsResponse.getIsSuccess(),itemsResponse.getCode(), itemsResponse.getMessage(), itemsResponse.getItemsResults());
             }
 
             @Override

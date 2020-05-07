@@ -8,7 +8,7 @@ public class ItemResponse {
         return itemResult;
     }
 
-    public class ItemResult {
+    public static class ItemResult {
         @SerializedName("id")
         private int item_id;
         @SerializedName("mall_name")
@@ -51,7 +51,7 @@ public class ItemResponse {
         }
 
 
-        public String getItem_name() {
+        public  String getItem_name() {
             return item_name;
         }
 

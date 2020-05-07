@@ -1,5 +1,6 @@
 package com.example.zigzag.src.itemdetail;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -16,7 +17,8 @@ import androidx.appcompat.widget.Toolbar;
 
 import com.example.zigzag.R;
 import com.example.zigzag.src.BaseActivity;
-import com.example.zigzag.src.BottomSheetDialog;
+import com.example.zigzag.src.bucket.BucketActivity;
+import com.example.zigzag.src.itemdetail.buy.BottomSheetDialog;
 import com.example.zigzag.src.itemdetail.interfaces.ItemDetailActivityView;
 import com.example.zigzag.src.itemdetail.models.ItemResponse;
 
@@ -28,7 +30,7 @@ public class ItemDetailActivity extends BaseActivity implements ItemDetailActivi
     private ImageView mBtnBuy;
     private ItemResponse.ItemResult mItem;
     private int mItemNum;
-    private TextView mTvReviewNum, mTvStoreName, mTvItemName, mTvItemPrice, mTvDiscount, mTvItemCode;
+    private TextView mTvReviewNum, mTvStoreName, mTvItemName, mTvItemPrice, mTvDiscount;
     private CheckBox mItemLike, mShopFavorite;
     private ImageView mItemPhoto;
     private ItemDetailService itemDetailService;
@@ -37,7 +39,6 @@ public class ItemDetailActivity extends BaseActivity implements ItemDetailActivi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_itemdetail);
-
 
         mToolbar = findViewById(R.id.item_detail_toolbar);
         setSupportActionBar(mToolbar);
@@ -54,6 +55,7 @@ public class ItemDetailActivity extends BaseActivity implements ItemDetailActivi
             @Override
             public void onClick(View v) {
                 BottomSheetDialog bottomSheetDialog = BottomSheetDialog.getInstance();
+                bottomSheetDialog.setMItem(mItem);
                 bottomSheetDialog.show(getSupportFragmentManager(), "bottomSheet");
             }
         });
@@ -66,6 +68,7 @@ public class ItemDetailActivity extends BaseActivity implements ItemDetailActivi
     public void getItemDetail(int number){
         itemDetailService.getItemDetail(number);
     }
+
     public void setItemDetail(){
         if(mItemNum != 0){
             getItemDetail(mItemNum);
@@ -103,6 +106,8 @@ public class ItemDetailActivity extends BaseActivity implements ItemDetailActivi
                 return true;
             case R.id.toolbar_bucket_button:
                 showCustomToast("장바구니");
+                Intent intent = new Intent(getApplicationContext(), BucketActivity.class);
+                startActivity(intent);
         }
         return super.onOptionsItemSelected(item);
     }
@@ -119,6 +124,7 @@ public class ItemDetailActivity extends BaseActivity implements ItemDetailActivi
             if(itemResponse.getIs_heart().equals("Y")){
                 mItemLike.setChecked(true);
             }
+            mItem = itemResponse;
         }
     }
 
