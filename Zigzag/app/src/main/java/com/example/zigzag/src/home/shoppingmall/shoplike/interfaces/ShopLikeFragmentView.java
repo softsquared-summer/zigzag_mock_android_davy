@@ -5,4 +5,5 @@ public interface ShopLikeFragmentView {
     void validateSuccess(String text);
 
     void validateFailure(String message);
+
 }

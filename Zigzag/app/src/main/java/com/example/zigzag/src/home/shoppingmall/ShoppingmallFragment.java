@@ -1,9 +1,11 @@
 package com.example.zigzag.src.home.shoppingmall;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -13,6 +15,7 @@ import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.zigzag.R;
+import com.example.zigzag.src.bucket.BucketActivity;
 import com.example.zigzag.src.home.shoppingmall.shoplike.ShopLikeFragment;
 import com.example.zigzag.src.home.shoppingmall.shoprank.ShopRankFragment;
 import com.google.android.material.tabs.TabLayout;
@@ -20,6 +23,7 @@ import com.google.android.material.tabs.TabLayout;
 public class ShoppingmallFragment extends Fragment {
     ViewGroup viewGroup;
     private ViewPager mViewPager;
+    private ImageView mBtnBucket;
 
     @Nullable
     @Override
@@ -32,6 +36,14 @@ public class ShoppingmallFragment extends Fragment {
         tabLayout.addTab(tabLayout.newTab().setText("즐겨찾기"));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
+        mBtnBucket = viewGroup.findViewById(R.id.shop_bucket);
+        mBtnBucket.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), BucketActivity.class);
+                startActivity(intent);
+            }
+        });
         mViewPager = (ViewPager)viewGroup.findViewById(R.id.vp_shop);
         //프래그먼트 안에 프래그먼트를 만들 때는 FragmentManager 대신 ChildFragmentManager 사용
         final ViewPagerAdapter adapter = new ViewPagerAdapter(getChildFragmentManager(), tabLayout.getTabCount());

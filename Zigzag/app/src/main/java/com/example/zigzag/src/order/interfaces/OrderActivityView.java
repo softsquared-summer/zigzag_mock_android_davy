@@ -14,4 +14,6 @@ public interface OrderActivityView {
     void getBucketSuccess(boolean isSuccess, int code, String message, int count, ArrayList<BucketResponse.BucketResult.BucketItem> bucketResult);
 
     void postAddressSuccess(boolean isSuccess, int code, String message);
+
+    void postPaymentSuccess(boolean isSuccess, int code, String message);
 }

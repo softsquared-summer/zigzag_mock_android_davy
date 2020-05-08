@@ -15,6 +15,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.zigzag.R;
+import com.example.zigzag.src.bucket.BucketActivity;
 import com.example.zigzag.src.login.LogInActivity;
 import com.example.zigzag.src.setup.SetupActivity;
 
@@ -26,6 +27,7 @@ public class MypageFragment extends Fragment {
     private TextView tv_hello, tv_id;
     private ImageView btn_setup;
     private String mId, mJwt;
+    private ImageView mBtnBucket;
 
     @Nullable
     @Override
@@ -48,6 +50,15 @@ public class MypageFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), SetupActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        mBtnBucket = viewGroup.findViewById(R.id.mypage_bucket);
+        mBtnBucket.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), BucketActivity.class);
                 startActivity(intent);
             }
         });

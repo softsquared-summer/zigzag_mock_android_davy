@@ -5,6 +5,8 @@ import com.example.zigzag.src.bucket.models.BucketResponse;
 import com.example.zigzag.src.main.models.DefaultResponse;
 import com.example.zigzag.src.order.models.AddressBody;
 import com.example.zigzag.src.order.models.AddressResponse;
+import com.example.zigzag.src.order.models.PaymentBody;
+import com.example.zigzag.src.order.models.PaymentResponse;
 
 import okhttp3.RequestBody;
 import retrofit2.Call;
@@ -33,4 +35,7 @@ public interface OrderRetrofitInterface {
 
     @POST("/addrss")
     Call<AddressResponse>postAddress(@Body AddressBody params);
+
+    @POST("/payment?type=non_bank")
+    Call<PaymentResponse>postPayment(@Body PaymentBody params);
 }

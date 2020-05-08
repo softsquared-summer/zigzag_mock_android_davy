@@ -50,11 +50,11 @@ public class ShopRankAdapter extends RecyclerView.Adapter<ShopRankAdapter.ViewHo
         }
         holder.mShopName.setText(item.getMall_name());
         holder.mShopRank.setText(item.getMall_rank());
-        if(item.getTags().size() > 0){
-            holder.mShopTag.setText(item.getTags().get(0).getTag_name());
-        }else{
-            holder.mShopTag.setText("");
-        }
+//        if(item.getTags().size > 0){
+//            holder.mShopTag.setText(item.getTags().get(0).getTag_name());
+//        }else{
+//            holder.mShopTag.setText("");
+//        }
         holder.mRelativeItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

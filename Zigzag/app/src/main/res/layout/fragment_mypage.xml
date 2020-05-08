@@ -38,7 +38,7 @@
             android:layout_marginRight="13dp"
             android:layout_gravity="center_vertical"/>
         <ImageView
-            android:id="@+id/bucket"
+            android:id="@+id/mypage_bucket"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/bucket"

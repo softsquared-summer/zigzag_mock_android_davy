@@ -10,4 +10,5 @@
     <color name="colorError">#FF0000</color>
     <color name="colorControlActivated">#FF0199</color>
     <color name="colorStrokeGray">#E2E1E1E1</color>
+    <color name="colorWhite">#77F4C8E0</color>
 </resources>

@@ -22,13 +22,13 @@ class LikesService {
         likesRetrofitInterface.getLikesItemList().enqueue(new Callback<ItemsResponse>() {
             @Override
             public void onResponse(Call<ItemsResponse> call, Response<ItemsResponse> response) {
-                final ItemsResponse itemsResponse = response.body();
-                if (itemsResponse == null) {
+                final ItemsResponse itemsAllResponse = response.body();
+                if (itemsAllResponse == null) {
                     mLikesFragmentView.validateFailure(null);
                     return;
                 }
 
-                mLikesFragmentView.getItemSuccess(itemsResponse.getIsSuccess(),itemsResponse.getCode(), itemsResponse.getMessage(), itemsResponse.getItemsResults());
+                mLikesFragmentView.getItemSuccess(itemsAllResponse.getIsSuccess(),itemsAllResponse.getCode(), itemsAllResponse.getMessage(),itemsAllResponse.getItemsResults());
             }
 
             @Override

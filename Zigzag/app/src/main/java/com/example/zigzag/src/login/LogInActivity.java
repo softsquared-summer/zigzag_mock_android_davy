@@ -31,8 +31,14 @@ public class LogInActivity extends BaseActivity implements LogInActivityView {
     private EditText mEtPw;
     private TextView mTvPw;
     private TextView mTvFPw;
+    private TextView mBtnLogin;
+
+
+    private int count = 0;
+    private Boolean isIdOk=false, isPwOk=false;
 
     private LoginService logInService;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +52,10 @@ public class LogInActivity extends BaseActivity implements LogInActivityView {
         mTvPw = findViewById(R.id.tv_login_pw);
         mTvFPw = findViewById(R.id.tv_fpw);
 
+
+
         mTvFPw.setPaintFlags(mTvFPw.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+
         mEtId.addTextChangedListener(
                 new TextWatcher() {
                     @Override
@@ -69,6 +78,8 @@ public class LogInActivity extends BaseActivity implements LogInActivityView {
                         }
                         else{
                             mTvId.setText("이메일");
+                            mTvId.setTextColor(Color.BLACK);
+             //               count++;
                         }
                     }
                 }
@@ -92,15 +103,25 @@ public class LogInActivity extends BaseActivity implements LogInActivityView {
                     public void afterTextChanged(Editable s) {
                         if(mEtPw.getText().toString().length() < 6){
                             mTvPw.setText("비밀번호는 6자리 이상입니다");
-                            mTvId.setTextColor(Color.RED);
+                            mTvPw.setTextColor(Color.RED);
                         }
                         else{
                             mTvPw.setText("비밀번호");
+                            mTvPw.setTextColor(Color.BLACK);
+          ///                  count++;
                         }
                     }
                 }
         );
 
+        mBtnLogin = findViewById(R.id.tv_btn_login);
+//        if(count > 1){
+//            mBtnLogin.setClickable(true);
+//            mBtnLogin.setBackground(this.getResources().getDrawable(R.drawable.border_round_pink));
+//        }else{
+//            mBtnLogin.setClickable(false);
+//            mBtnLogin.setBackground(this.getResources().getDrawable(R.drawable.border_round_pink_white));
+//        }
 
     }
 

@@ -6,6 +6,7 @@ import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 
@@ -16,6 +17,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.example.zigzag.R;
 import com.example.zigzag.src.bottom.BottomActivity;
+import com.example.zigzag.src.bucket.BucketActivity;
 import com.example.zigzag.src.dress.DressActivity;
 import com.example.zigzag.src.home.zigzag.MyCustomPagerAdapter;
 import com.example.zigzag.src.outer.OuterActivity;
@@ -31,6 +33,7 @@ public class GatherFragment extends Fragment {
     ViewPager viewPager;
     TabLayout tabLayout;
     private LinearLayout mBtnOuter, mBtnTop, mBtnDress, mBtnBottom, mBtnFree;
+    private ImageView mBtnBucket;
 
     private ScrollView mScrollView;
     private FloatingActionButton mFloatingBtn;
@@ -55,6 +58,15 @@ public class GatherFragment extends Fragment {
         viewPager = (ViewPager)viewGroup.findViewById(R.id.vp_gather_ad);
         myCustomPagerAdapter = new MyCustomPagerAdapter(getContext(), images);
         viewPager.setAdapter(myCustomPagerAdapter);
+
+        mBtnBucket = viewGroup.findViewById(R.id.gather_bucket);
+        mBtnBucket.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), BucketActivity.class);
+                startActivity(intent);
+            }
+        });
 
         tabLayout = viewGroup.findViewById(R.id.gather_ad_tab);
         tabLayout.setupWithViewPager(viewPager, true);

@@ -1,5 +1,6 @@
 package com.example.zigzag.src.home.shoppingmall.shoplike.interfaces;
 
+import com.example.zigzag.src.home.shoppingmall.shoplike.models.ShopLikesResponse;
 import com.example.zigzag.src.main.models.DefaultResponse;
 
 import okhttp3.RequestBody;
@@ -23,4 +24,7 @@ public interface ShopLikeRetrofitInterface {
 
     @POST("/test")
     Call<DefaultResponse> postTest(@Body RequestBody params);
+
+    @GET("/favorites")
+    Call<ShopLikesResponse>getShopLike();
 }

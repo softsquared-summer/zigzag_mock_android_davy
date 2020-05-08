@@ -23,7 +23,7 @@ public class ShopRankResponse {
         private String mall_rank;
 
         @SerializedName("tags")
-        private ArrayList<TagList> tags;
+        private TagList tags;
 
         public class TagList{
             @SerializedName("tag_id")
@@ -59,7 +59,7 @@ public class ShopRankResponse {
             return mall_rank;
         }
 
-        public ArrayList<TagList> getTags() {
+        public TagList getTags() {
             return tags;
         }
     }

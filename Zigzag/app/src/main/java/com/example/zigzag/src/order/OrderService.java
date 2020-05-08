@@ -6,6 +6,8 @@ import com.example.zigzag.src.order.interfaces.OrderActivityView;
 import com.example.zigzag.src.order.interfaces.OrderRetrofitInterface;
 import com.example.zigzag.src.order.models.AddressBody;
 import com.example.zigzag.src.order.models.AddressResponse;
+import com.example.zigzag.src.order.models.PaymentBody;
+import com.example.zigzag.src.order.models.PaymentResponse;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -60,6 +62,27 @@ class OrderService {
 
             @Override
             public void onFailure(Call<AddressResponse> call, Throwable t) {
+                mOrderActivityView.validateFailure(null);
+            }
+        });
+    }
+
+    void postPayment(String isOver14, String isServiceAgree, String isOrderAgree, int itemId1, int itemId2, int itemId3, int itemId4, int itemId5){
+        final OrderRetrofitInterface orderRetrofitInterface = getRetrofit().create(OrderRetrofitInterface.class);
+        orderRetrofitInterface.postPayment(new PaymentBody(isOver14, isServiceAgree, isOrderAgree, itemId1, itemId2, itemId3, itemId4, itemId5)).enqueue(new Callback<PaymentResponse>() {
+            @Override
+            public void onResponse(Call<PaymentResponse> call, Response<PaymentResponse> response) {
+                final PaymentResponse paymentResponse = response.body();
+                if (paymentResponse == null) {
+                    mOrderActivityView.validateFailure(null);
+                    return;
+                }
+
+                mOrderActivityView.postPaymentSuccess(paymentResponse.getIsSuccess(), paymentResponse.getCode(), paymentResponse.getMessage());
+            }
+
+            @Override
+            public void onFailure(Call<PaymentResponse> call, Throwable t) {
                 mOrderActivityView.validateFailure(null);
             }
         });

@@ -54,6 +54,7 @@ public class BucketActivity extends BaseActivity implements BucketActivityView {
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), OrderActivity.class);
                 intent.putExtra("price", mAllTotal);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
             }
         });
